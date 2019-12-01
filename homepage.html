@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>地铁服务-首页</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .canvas {
+        margin-top: 0;
+    }
+
+    .canvas .first-layer {
+        width: 100%;
+        height: 2048px;
+        z-index: 1;
+        display: flex;
+    }
+
+    .canvas .first-layer .right {
+        width: 50%;
+        filter: blur(10px);
+    }
+
+    html .canvas .first-layer .right:hover,
+    body .canvas .first-layer .right:hover {
+        transition: all 1s ease;
+        filter: blur(0px);
+    }
+
+    .canvas .first-layer .right embed {
+        z-index: 0;
+        display: block;
+        width: 5120px;
+        height: 5120px;
+        position: relative;
+        bottom: 900px;
+    }
+
+    .btn-check {
+        z-index: 1;
+        position: relative;
+        width: 32px;
+        height: 32px;
+        left: 306px;
+        top: 172px;
+        background: transparent;
+        border: none;
+    }
+
+    .btn-background{
+        z-index: 0;
+        position: relative;
+        width: 32px;
+        height: 32px;
+        left: 306px;
+        top: 140px;
+        background: transparent;
+    }
+
+    .canvas .first-layer .left {
+        width: 50%;
+        position: relative;
+        padding-left: 128px;
+        padding-top: 8%;
+    }
+
+    .canvas .first-layer .left .tool-bar {
+        padding-left: 20px;
+        height: 8px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .logo-img {
+        width: 50px;
+        position: relative;
+        bottom: 3px;
+        right: 30px;
+        margin-right: 20px;
+    }
+
+    .search-box {
+        position: relative;
+        right: 75px;
+        bottom: 5px;
+    }
+
+    .search-border {
+        width: 64px;
+        height: 8px;
+        z-index: 0;
+    }
+
+    .search-input {
+        width: 60px;
+        height: 2px;
+        font-size: 3px;
+        z-index: 1;
+        outline: none;
+        position: relative;
+        left: 3px;
+        bottom: 14px;
+        border: none;
+    }
+
+    .canvas .first-layer .left .title-tb {
+        width: 100%;
+        z-index: 0;
+    }
+
+    .canvas .first-layer .left .title-tx {
+        alignment: center;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 64px;
+        /*position: absolute;*/
+        /*left: 10%;*/
+        /*top: 10%;*/
+        padding: 2px;
+        border-width: 4px;
+        border-color: black;
+        border-style: solid;
+    }
+
+    .canvas .first-layer .left .introduction-tx {
+        width: 100%;
+        alignment: center;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        /*position: absolute;*/
+        /*left: 10%;*/
+        /*top: 40%;*/
+    }
+
+    .canvas .first-layer .left .arrow-btn {
+        /*position: absolute;*/
+        /*left: 27%;*/
+        /*top: 79%;*/
+        margin-top: 10%;
+        margin-left: 50%;
+        margin-right: 50%;
+    }
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-text {
+        font-family: 'Microsoft YaHei UI';
+        font-size: x-large;
+    }
+
+    .li-text {
+        color: #484848;
+        font-family: 'Microsoft YaHei UI';
+        font-size: medium;
+    }
+
+    .clear-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+</style>
+<body>
+<div class="canvas">
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm navbar-transparent" style="z-index: 2">
+            <div class="col-md-1" style="margin-right: 10px">
+                <a class="navbar-brand" href="#">
+                    <img src="static/logo.png" width="102" height="43" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 clear-padding" style="border-radius: 10px">
+                <form class="form-inline shadow-sm">
+                    <div class="input-group input-group-lg col-md-12 clear-padding">
+                        <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: #ffffff; border: #EBEBEB; border-right: none"
+                      id="inputGroup-sizing-lg">
+                    <embed src="static/search.svg">
+                </span>
+                        </div>
+                        <input type="text" style="border: #EBEBEB; border-left: none;" class="form-control"
+                               aria-label="Large"
+                               aria-describedby="inputGroup-sizing-sm"
+                               placeholder="搜索“ 谢家村站 ”试试">
+                    </div>
+                </form>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link li-text" href="#"><b>关于我们</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link li-text" href="#"><b>注册</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link li-text" href="#"><b>登录</b></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="first-layer">
+        <div class="left">
+            <table class="title-tb">
+                <tr>
+                    <td>
+                        <p class="title-tx">
+                            南昌地铁&nbsp&nbsp&nbsp&nbsp娱乐中心
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <P class="introduction-tx">南昌地铁（Nanchang
+                            Metro）是服务于中国江西省南昌市的城市轨道交通系统。其首条线路于2015年12月26日开通载客试运营，使南昌成为中国大陆第25个、江西首个投入运营地铁的城市。 </P>
+                    </td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td style="padding-top: 130px">
+                        <button type="button" class="btn btn-outline-dark"><b>点击右侧站点，开始南昌之旅 →</b></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="right" class="right">
+            <button class="btn-check" onclick="check_animation()" ondblclick="double_check_animation()"></button>
+            <div class="btn-background"></div>
+            <embed class="subway-svg" src="static/subway.svg">
+        </div>
+    </div>
+</div>
+<div class="site" id="card_list" style="position: absolute; z-index: 3; left:50%;top:50%;transform: translate(-50%, -50%); display: none" >
+
+    <div class="wrapper horizontal demo1">
+        <ul class="container">
+
+                <li class="cards_list">
+
+                    <div class="img">
+
+                        <img src="static/food.jpg" width="320px" height="200px" alt="">
+
+                    </div>
+                    <div class="main_con" style="padding-bottom: 30px">
+
+                        <h4 class="name">美食专区</h4>
+
+                        <p class="content">
+                            与千百种美食相遇，与千百个人相识，与千百种人生，相知相惜
+                        </p>
+
+                        <a href="foods.html"><button type="button" class="btn btn-outline-dark btn-sm ">了解更多</button></a>
+
+                    </div>
+                </li>
+
+                <li class="cards_list">
+
+                    <div class="img">
+
+                        <img src="static/lvyou.jpg" width="320px" height="200px" alt="">
+
+                    </div>
+                    <div class="main_con" style="padding-bottom: 30px">
+
+                        <h4 class="name">旅游景点</h4>
+
+                        <p class="content">
+
+                            旅行带你走出安逸之乡,教会你以一种全新的方式感受世界万物
+                        </p>
+
+                        <a href="travel.html"><button type="button" class="btn btn-outline-dark btn-sm ">了解更多</button></a>
+
+                    </div>
+                </li>
+
+                <li class="cards_list">
+
+                    <div class="img">
+
+                        <img src="static/hotel.jpg" width="320px" height="200px"  alt="">
+
+                    </div>
+
+                    <div class="main_con" style="padding-bottom: 30px">
+
+                        <h4 class="name">舒适酒店</h4>
+
+                        <p class="content">
+                            我们已备好柔软被褥、慵懒沙发、江景浴缸……只为疲惫的你随时都能“回家”
+                        </p>
+
+
+                        <a href="hotels.html"><button type="button" class="btn btn-outline-dark btn-sm ">了解更多</button></a>
+                    </div>
+
+                </li>
+
+
+        </ul>
+
+        <i class="btn-direct btn-left">
+
+            <span class="shift-left"></span>
+
+        </i>
+        <i class="btn-direct btn-right">
+
+            <span class="shift-right"></span>
+
+        </i>
+
+    </div>
+
+</div>
+</body>
+<script src="node_modules/move-js/move.js"></script>
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="js/carousel.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("div.wrapper").each(function (i, e) {
+            $(e).attr("ondragstart", "return false");
+        });
+
+        var $demo1 = $("div.demo1");
+
+        console.time("t");
+
+        var carousel1 = new Carousel($demo1.children("ul.container"), {
+            opacity: .9,
+            scale: [.9],
+            transition: "400ms",
+            switchBtn: $demo1.children("i.btn-direct"),
+            isClickCard: true,
+            isAuto: true,
+            interval: 3000
+        });
+        console.timeEnd("t");
+
+    });
+</script>
+<script>
+
+
+    function check_animation() {
+        let skew_map = move('.right')
+            .skew(45, -25);
+
+        let move_map = move('.right')
+            .scale(0.3, 0.3)
+            .set('margin-bottom', '1400px')
+            .set('margin-right', '100%')
+            .then(skew_map);
+
+        move('.left')
+            .set('opacity', '0')
+            .then(move_map)
+            .end();
+    }
+
+    function double_check_animation() {
+        move('.right')
+            .set('filter','blur(30px)')
+            .end(function () {
+                move('#card_list')
+                    .set('display','unset')
+                    .end();
+            });
+
+    }
+
+</script>
+</body>
+</html>
