@@ -129,17 +129,24 @@
     <div class="col-md-1" style="margin-right: 10px">
         <a class="navbar-brand nav-text" href="homepage.html"><b style="color:#484848;">南昌地铁</b></a>
     </div>
+    <!--            搜索框-->
     <div class="col-md-4 clear-padding" style="border-radius: 10px">
         <form class="form-inline shadow-sm">
-            <div class="input-group input-group-lg col-md-12 clear-padding" >
-                <div class="input-group-prepend">
-                <span class="input-group-text" style="background-color: #ffffff; border: #EBEBEB; border-right: none" id="inputGroup-sizing-lg">
-                    <svg t="1574817648386" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2749" width="25" height="25"><path d="M797.525333 752.266667c62.069333-72.736 97.28-165.002667 97.28-262.186667C894.816 266.528 713.621333 85.333333 490.08 85.333333 266.538667 85.333333 85.333333 266.538667 85.333333 490.069333 85.333333 713.610667 266.538667 894.826667 490.069333 894.826667a404.693333 404.693333 0 0 0 118.208-17.546667 32 32 0 0 0-18.666666-61.216 340.693333 340.693333 0 0 1-99.541334 14.762667C301.888 830.816 149.333333 678.261333 149.333333 490.069333 149.333333 301.888 301.888 149.333333 490.069333 149.333333 678.261333 149.333333 830.826667 301.888 830.826667 490.069333c0 89.28-35.381333 173.696-97.141334 237.322667a36.992 36.992 0 0 0 0.384 51.925333l149.973334 149.973334a32 32 0 0 0 45.258666-45.248L797.525333 752.266667z" p-id="2750" fill="#707070"></path></svg>
-                </span>
+            <div class="input-group input-group-lg col-md-12 clear-padding">
+                <div class="input-group-prepend border-0" >
+                            <span class="input-group-text border-0" style="background-color: white" id="inputGroup-sizing-lg">
+                                <embed src="static/image/index/search.svg">
+                            </span>
                 </div>
-                <input type="text" style="border: #EBEBEB; border-left: none;" class="form-control" aria-label="Large"
+                <input id="search" type="search" role="search" style="border: #EBEBEB; border-left: none;" class="form-control"
+                       aria-label="Large"
                        aria-describedby="inputGroup-sizing-sm"
-                       placeholder="搜索“ 谢家村站 ”试试">
+                       placeholder="搜索“ 谢家村站 ”试试" onkeyup="search(event)">
+                <div class="input-group-append">
+                    <button class="btn btn-default border-0" type="button">
+                        <a href="searchResult.html" style="text-decoration: none; color:#484848;">搜索</a>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
@@ -151,7 +158,7 @@
     <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02" >
         <ul class="navbar-nav ml-auto" >
             <li class="nav-item">
-                <a class="nav-link li-text" href="#"><b>关于我们</b></a>
+                <a class="nav-link li-text" href="aboutUs.html"><b>关于我们</b></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link li-text" href="#"><b>登录</b></a>
@@ -382,9 +389,9 @@
         <div class="tab-pane fade show " id="pills-kaorou" role="tabpanel" aria-labelledby="pills-kaorou-tab">
             <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; margin-left: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/xiangtianxia.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/barbecue/jiangyuandao.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">香天下火锅</h6>
+                        <h6 class="card-title store_name">江原道烤肉</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -397,19 +404,19 @@
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">89</span>
+                                <span class="current-price">79</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
-                                <p class="store-address text-right align-bottom">红谷滩万达金街</p>
+                                <p class="store-address text-right align-bottom">会展路</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/jijihong.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/barbecue/muxi.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">季季红火锅（红谷滩万达店）</h6>
+                        <h6 class="card-title store_name">牧熙烤肉</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -417,12 +424,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.6分&nbsp; &nbsp;1099个评价</span>
+                        <span class="pingjia">4.6分&nbsp; &nbsp;1035个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">75</span>
+                                <span class="current-price">98</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -432,9 +439,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/xiaofeiyang.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/barbecue/chidao.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">小肥羊（和昌熙梦里店）</h6>
+                        <h6 class="card-title store_name">赤道烤肉</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -442,7 +449,7 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.5分&nbsp; &nbsp;327个评价</span>
+                        <span class="pingjia">4.5分&nbsp; &nbsp;627个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
@@ -459,9 +466,9 @@
             </div>
             <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; margin-left: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/dewang.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/barbecue/chenjitankao.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">重庆德庄火锅（红谷滩万达店</h6>
+                        <h6 class="card-title store_name">陈记炭烧</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -469,24 +476,24 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.8分&nbsp; &nbsp;568个评价</span>
+                        <span class="pingjia">4.8分&nbsp; &nbsp;541个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">100</span>
+                                <span class="current-price">78</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
-                                <p class="store-address text-right align-bottom">会展路999号万达广场3层</p>
+                                <p class="store-address text-right align-bottom">会展路967号</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/yutou.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/barbecue/hansheng.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">味之绝美蛙鱼头火锅</h6>
+                        <h6 class="card-title store_name">韩盛古法烤肉</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -494,7 +501,7 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.7分&nbsp; &nbsp;324个评价</span>
+                        <span class="pingjia">4.6分&nbsp; &nbsp;977个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
@@ -503,15 +510,15 @@
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
-                                <p class="store-address text-right align-bottom">万达广场金街2楼1-2045</p>
+                                <p class="store-address text-right align-bottom">卫东金街2楼1-2045</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/niuqianqioan.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/barbecue/longyuan.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">牛签签成都串串香</h6>
+                        <h6 class="card-title store_name">龙苑烤肉</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -519,7 +526,7 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">5.0分&nbsp; &nbsp;706个评价</span>
+                        <span class="pingjia">4.9分&nbsp; &nbsp;678个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
@@ -539,9 +546,9 @@
         <div class="tab-pane fade show " id="pills-difang" role="tabpanel" aria-labelledby="pills-difang-tab">
             <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; margin-left: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/xiangtianxia.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/localmeal/guanzhibei.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">香天下火锅</h6>
+                        <h6 class="card-title store_name">关之北</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -549,12 +556,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
+                        <span class="pingjia">4.8分&nbsp; &nbsp;336个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">89</span>
+                                <span class="current-price">63</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -564,9 +571,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/jijihong.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/localmeal/weileijiangnan.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">季季红火锅（红谷滩万达店）</h6>
+                        <h6 class="card-title store_name">味蕾江南（红谷滩万达店）</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -574,12 +581,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.6分&nbsp; &nbsp;1099个评价</span>
+                        <span class="pingjia">4.7分&nbsp; &nbsp;1430个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">75</span>
+                                <span class="current-price">55</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -589,9 +596,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/xiaofeiyang.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/localmeal/dawanmian.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">小肥羊（和昌熙梦里店）</h6>
+                        <h6 class="card-title store_name">大碗面（万达店）</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -599,16 +606,16 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.5分&nbsp; &nbsp;327个评价</span>
+                        <span class="pingjia">4.6分&nbsp; &nbsp;998个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">99</span>
+                                <span class="current-price">31</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
-                                <p class="store-address text-right align-bottom">熙梦里购物广场</p>
+                                <p class="store-address text-right align-bottom">红谷滩万达</p>
                             </div>
                         </div>
                     </div>
@@ -616,9 +623,9 @@
             </div>
             <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; margin-left: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/dewang.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/localmeal/chuanyu.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">重庆德庄火锅（红谷滩万达店</h6>
+                        <h6 class="card-title store_name">川俞竹苑</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -626,12 +633,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.8分&nbsp; &nbsp;568个评价</span>
+                        <span class="pingjia">4.9分&nbsp; &nbsp;558个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">100</span>
+                                <span class="current-price">92</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -641,9 +648,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/yutou.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/localmeal/fuyuansu.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">味之绝美蛙鱼头火锅</h6>
+                        <h6 class="card-title store_name">福元素中式快餐（万达店）</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -651,12 +658,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.7分&nbsp; &nbsp;324个评价</span>
+                        <span class="pingjia">4.8分&nbsp; &nbsp;777个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">79</span>
+                                <span class="current-price">77</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -666,9 +673,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/niuqianqioan.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/localmeal/gancai.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">牛签签成都串串香</h6>
+                        <h6 class="card-title store_name">赣菜</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -696,9 +703,9 @@
         <div class="tab-pane fade show " id="pills-yinliao" role="tabpanel" aria-labelledby="pills-yinliao-tab">
             <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; margin-left: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/xiangtianxia.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/drink/biubiu.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">香天下火锅</h6>
+                        <h6 class="card-title store_name">BiuBiu饮品</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -706,12 +713,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
+                        <span class="pingjia">4.9分&nbsp; &nbsp;999个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">89</span>
+                                <span class="current-price">12</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -721,9 +728,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/jijihong.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/drink/guming.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">季季红火锅（红谷滩万达店）</h6>
+                        <h6 class="card-title store_name">古茗茶饮（红谷滩万达店）</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -731,12 +738,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.6分&nbsp; &nbsp;1099个评价</span>
+                        <span class="pingjia">4.8分&nbsp; &nbsp;371个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">75</span>
+                                <span class="current-price">9</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -746,9 +753,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/xiaofeiyang.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/drink/kending.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">小肥羊（和昌熙梦里店）</h6>
+                        <h6 class="card-title store_name">垦丁Q蛋奶茶店</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -761,11 +768,11 @@
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">99</span>
+                                <span class="current-price">9</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
-                                <p class="store-address text-right align-bottom">熙梦里购物广场</p>
+                                <p class="store-address text-right align-bottom">万达金街一楼</p>
                             </div>
                         </div>
                     </div>
@@ -773,9 +780,9 @@
             </div>
             <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; margin-left: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/dewang.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/drink/xiaozuo.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">重庆德庄火锅（红谷滩万达店</h6>
+                        <h6 class="card-title store_name">小佐茶作（红谷滩万达店）</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -788,7 +795,7 @@
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">100</span>
+                                <span class="current-price">10</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -798,9 +805,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; " >
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/yutou.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/drink/weike.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">味之绝美蛙鱼头火锅</h6>
+                        <h6 class="card-title store_name">末可甜品</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -808,12 +815,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">4.7分&nbsp; &nbsp;324个评价</span>
+                        <span class="pingjia">4.7分&nbsp; &nbsp;732个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">79</span>
+                                <span class="current-price">11</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -823,9 +830,9 @@
                     </div>
                 </div>
                 <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
-                    <a href=""><img class="card-img-top store-img" src="static/image/foods/hotpot/niuqianqioan.jpg" alt="Card image cap"></a>
+                    <a href=""><img class="card-img-top store-img" src="static/image/foods/drink/shisexing.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
-                        <h6 class="card-title store_name">牛签签成都串串香</h6>
+                        <h6 class="card-title store_name">食色幸甜品</h6>
                         <ui>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
@@ -833,12 +840,12 @@
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                             <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
                         </ui>
-                        <span class="pingjia">5.0分&nbsp; &nbsp;706个评价</span>
+                        <span class="pingjia">4.9分&nbsp; &nbsp;706个评价</span>
                         <br>
                         <div class="row clear-padding">
                             <div class="col-md-6">
                                 <span class="price-symbol">￥</span>
-                                <span class="current-price">63</span>
+                                <span class="current-price">13</span>
                                 <span class="price-symbol">起</span>
                             </div>
                             <div class="col-md-6">
@@ -859,9 +866,12 @@
         <div class="tab-pane fade show active" id="pills-youhui" role="tabpanel" aria-labelledby="pills-youhui-tab">
             <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
                 <div class="card clear-padding border-0 shadow-sm" style="width: 18.5%; margin-right: 1%; margin-left: 1.6%; " >
+<!--                    卡片的图片-->
                     <a href=""><img class="card-img-top cheap-img" src="static/image/foods/cheap/30cheap.jpg" alt="Card image cap"></a>
                     <div class="card-body" >
+<!--                        卡片的店名-->
                         <h6 class="card-title store_name">香天下火锅</h6>
+<!--                        具体优惠-->
                         <span class="cheap-text">[多城市]30元代金券一张</span>
                         <br>
                         <div class="row clear-padding" style="margin-top: 20px">

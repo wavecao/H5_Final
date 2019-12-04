@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>关于南昌地铁</title>
+</head>
+<style>
+    .navbar{
+        padding:1rem;
+    }
+    .nav-text{
+        font-family: 'Microsoft YaHei UI';
+        font-size: x-large;
+    }
+    .li-text{
+        color: #484848;
+        font-family: 'Microsoft YaHei UI';
+        font-size: medium;
+    }
+    .clear-padding{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .footer-title{
+        overflow-wrap: break-word !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+        line-height: 1.28571em !important;
+        color: rgb(72, 72, 72) !important;
+        margin: 0 !important;
+    }
+    .footer-list{
+        list-style: none;
+        padding-left: 0;
+        margin-top: 16px;
+    }
+    .footer-li>a{
+        text-decoration: none;
+        font-size: 14px;
+        color: #767676;
+    }
+    .tab-pane{
+        background-color: #eeeeee;
+        margin-top: 25px;
+        height: 520px;
+        overflow: auto;
+        padding-right: 75px;
+        padding-left: 75px;
+    }
+    h4{
+        margin-bottom: 30px;
+    }
+</style>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="col-md-1" style="margin-right: 10px">
+        <a class="navbar-brand nav-text" href="homepage.html"><b style="color:#484848;">南昌地铁</b></a>
+    </div>
+    <!--            搜索框-->
+    <div class="col-md-4 clear-padding" style="border-radius: 10px">
+        <form class="form-inline shadow-sm">
+            <div class="input-group input-group-lg col-md-12 clear-padding">
+                <div class="input-group-prepend border-0" >
+                            <span class="input-group-text border-0" style="background-color: white" id="inputGroup-sizing-lg">
+                                <embed src="static/image/index/search.svg">
+                            </span>
+                </div>
+                <input id="search" type="search" role="search" style="border: #EBEBEB; border-left: none;" class="form-control"
+                       aria-label="Large"
+                       aria-describedby="inputGroup-sizing-sm"
+                       placeholder="搜索“ 谢家村站 ”试试" onkeyup="search(event)">
+                <div class="input-group-append">
+                    <button class="btn btn-default border-0" type="button">
+                        <a href="searchResult.html" style="text-decoration: none; color:#484848;">搜索</a>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02" >
+        <ul class="navbar-nav ml-auto" >
+            <li class="nav-item">
+                <a class="nav-link li-text" href="aboutUs.html"><b>关于我们</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link li-text" href="#"><b>登录</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link li-text" href="#"><b>注册</b></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <h3>关于南昌地铁</h3>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="static/image/aboutUs/hongse1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="static/image/aboutUs/hongse2.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="static/image/aboutUs/zhutijiaoyu.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="nav flex-column nav-pills col-md-3 border" style="border-radius: 5px;padding-right: 0; margin-top: 25px" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">集团概况</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">组织架构</a>
+            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">企业标识</a>
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">大事记</a>
+        </div>
+        <div class="tab-content col-md-9" id="v-pills-tabContent">
+<!--            集团概况-->
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <h4 class="text-center">集团概况</h4>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;南昌轨道交通集团成立于2008年10月，现有员工4300余人，下设3个分公司、3
+                    个全资子公司、5个参股子公司。
+                    主要承担南昌市轨道交通建设的融资、建设、运营、管理职能。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;南昌轨道交通线网规划为网格+放射状结构，由5条线路构成，全长198公里，
+                    共设站146座。第一轮建设规划于2009年7
+                    月获得国务院批准，其中1号线一期工程全长28.8公里，设站24座，总投资210亿元，已于2015年底建成通车；2号线一期工程
+                    全长23.8公里，设站21座，总投资160亿元，首通段已于2017年8月建成通车。包括3、4号线和1、2号线二期工程的第二轮建
+                    设规划，全长82.3公里，总投资610.9亿元，已于2015年5月获得国务院批准。目前，3号线、4号线均已全面开工建设，
+                    分别计划于2020年和2021年通车。届时，南昌主城几大片区都将连接覆盖地铁线路，极大方便市民出行。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了确保地铁建得起，百姓坐得起，南昌轨道交通集团秉承“弘毅拓业、和同
+                    共进”的企业精神，坚持“跳出南昌看
+                    南昌、跳出地铁看地铁”。在借鉴国内外城市经验的基础上，通过对地铁车站、上盖空间及沿线周边有效资源进行
+                    合理规划、综合开发，形成以地铁站点为中心的集交通、居住、餐饮、购物、娱乐、文化于一体的综合服务性社区，
+                    有效满足辐射半径内社区居民绝大部分需求，形成人气、商气、财气商业黄金链条，实现南昌地铁“自我投资、自我开发、
+                    自我建设、自我发展”的良性循环。目前，已建成和在建的地铁社区上盖物业项目约140万㎡。在加快推进地铁社区建设的同时，
+                    充分发挥集团“一体化”经营体制优势，全力推进轨道交通融资用地大收储、大开发，协议收储土地累计突破3万亩，
+                    有效确保了南昌地铁建设的可持续发展。截至2018年9月，总资产656.23亿，净资产351.40亿。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;南昌地铁将按照“全力以赴保平安，科学调度抓进度，履职履责促管理，尽心尽
+                    力优质量，互相配合强协调，铁心硬手严问责”42
+                    个字管理理念，撸起袖子加油干，为建设一流现代化企业集团，实现南昌地铁新一轮大发展、大跨越努力奋斗！</p>
+            </div>
+<!--            组织架构-->
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <h4 class="text-center">集团现有组织架构</h4>
+                <img class="img-responsive" src="static/image/aboutUs/zuzhi.png" width="100%"  alt="">
+            </div>
+<!--            企业标识-->
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                <h4 class="text-center">南昌地铁标志（logo）视觉识别系统简介</h4>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;南昌轨道交通集团视觉识别系统2014年11月25日正式发布，这是继该集团标
+                    志发布后对企业名称、标识、标准色等视觉识别要素做出的统一规范，
+                    此举标志着南昌轨道交通集团
+                    在打造集团统一品牌、推进集团文化建设方面迈出了重要一步。 </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;南昌轨道交通集团视觉识别系统包括：南昌轨道交通标志图形、标准色、
+                    标准组合、印刷字体、辅助图形等。其中，标志以地铁英文的第一个字母“M”及“候鸟”为主形，以“拓荒牛”、“孺子牛”、“列车”、“浪花”、
+                    “山峰”为辅助形，运用高度提炼的中国吉祥图腾纹样元素，造型简洁、流畅、灵动、大气，富有生命的张力，较好地体现轨道交通的安全感、
+                    舒适感、现代感。</p>
+                <div class="col-md-8 offset-2" style="margin-top: 10px; margin-bottom: 10px">
+                    <img src="static/image/aboutUs/guanfanglogo.jpg" class="w-100" alt="">
+                </div>
+                <p class="text-center">南昌地铁Logo</p>
+                <div class="col-md-8 offset-2" style="margin-top: 10px; margin-bottom: 10px">
+                    <img src="static/image/aboutUs/wanggelogo.png" class="w-100" alt="">
+                </div>
+                <p class="text-center">南昌地铁LOGO标准网格制图</p>
+            </div>
+<!--            大事记-->
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                <h4 class="text-center">2017年大事记</h4>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★1月16日，2号线丁-南区间（丁公路南站至南昌火车站）实现双向贯通，标志着2号线中心城区首个双向区间顺利贯通。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★1月11日，集团召开2016年落实度党风廉政建设责任制检查考核会议。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★1月20日，集团首届“我为集团发展献一计”颁奖典礼在地铁大厦5楼会议室举行。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★2月12日，央视《新闻联播》头条新闻“撸起袖子加油干 瞄准幸福感 做实大民生”中关注南昌地铁2号线工程建设。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★2月22日，2号线顺-辛（顺外路站至辛家庵站）区间左线盾构顺利接收，是2号线后通段第4条单线贯通区间，施工难度大，沿线下穿十余栋建筑物、玉带河、地下人防等高难度盾构区域。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★2月26日，南昌市滕王阁城市发展基金认购仪式在红谷滩会展中心隆重举行。集团党委书记、董事长李云峰参加仪式，认购20亿元份额。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★3月10日，集团成功注册2017年第一期中期票据，金额20亿元，注册期两年。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★3月21日，南昌地铁安全运营452天，累计客流破亿。列车总运行里程共计384.3万列公里，累计开行列车141679列次，日均开行列车313列次；单日平均动用列车20列，平均行车间隔为6-6.5分钟；全线平均正点率为99.97%，平均兑现率99.97%，远高于国家标准。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★3月27日，2号线红谷中大道站至阳明公园站区间过江隧道顺利穿越赣江，同时，也刷新了赣江江底隧道长度纪录。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★4月20日，2号线首通段地铁建设单位将工程属地管理权、调度指挥权和设备使用权移交给运营分公司，即"三权移交"，标志着地铁2号线首通段正式由建设阶段转向运营筹备阶段。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★6月28日，2号线首通段圆满完成了第四阶段20天试运行“跑图”工作，列车总运行里程8.77万列公里，各项指标运行良好，兑现率达到100%，高于国家标准98.5%，系统故障率远远低于国家标准，满足《城市轨道交通试运营基本条件》要求。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★8月9日，市推进轨道交通建设指挥部2017年第二次总指挥长会议在市政府第一会议室召开。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★9月15日，3号线首台盾构机由振兴大道站成功始发，标志着3号线正式步入盾构区间掘进阶段。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★10月1日，线网单日总客运量达到54.2702万乘次，再次刷新大客流记录，创历史新高。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★10月15日，中国共产党南昌轨道交通集团有限公司第一次代表大会胜利闭幕。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★10月26日，第九届全国城市轨道交通合约管理年会在南昌召开，共有41家全国地铁公司、150余名代表参加。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★11月8日，2017年全国城市轨道交通行业党建论坛在昌举行。来自全国的28家轨道交通企业还共同签署了《全国轨道交通行业党建联合声明》。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★12月21日，2017南昌国际马拉松志愿者工作暨“青清行动”2017年度工作表彰大会在南昌交通运输集团多功能厅召开。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;★12月30日，南昌轨道交通3号线二标振兴大道站顺利浇筑最后一段顶板，实现了车站469.6米地下两层结构的封顶目标，成为南昌县境内第一个完成封顶的车站。</p>
+            </div>
+        </div>
+        <div class="alert alert-success col-md-12" style="margin-top: 50px" role="alert">
+            <b>南昌地铁公益宣传视频</b>
+        </div>
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="" src="static/video/subway.mp4"></iframe>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="container" style="margin-top: 40px">
+        <div class="row">
+            <!-- 部分：一 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">南昌地铁</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href=""><b>工作机会</b></a></li>
+                        <li class="footer-li"><a href=""><b>地铁相关新闻</b></a></li>
+                        <li class="footer-li"><a href=""><b>政策与规定</b></a></li>
+                        <li class="footer-li"><a href=""><b>信息公开</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 部分：二 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">发现</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href=""><b>地铁地图</b></a></li>
+                        <li class="footer-li"><a href=""><b>公益活动</b></a></li>
+                        <li class="footer-li"><a href=""><b>乘车指南</b></a></li>
+                        <li class="footer-li"><a href=""><b>无障碍建设</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 部分：三 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">友情链接</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href="http://www.mot.gov.cn/" target="_blank"><b>交通运输部</b></a></li>
+                        <li class="footer-li"><a href="https://jx.122.gov.cn/" target="_blank"><b>江西省交管局</b></a></li>
+                        <li class="footer-li"><a href="http://www.nc.gov.cn/" target="_blank"><b>南昌市政府</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">联系我们</h4>
+                    <ul class="footer-list">
+                        <li style="display: inline;margin-right: 8px"><img src="static/image/foods/footer/WeChat.png" alt=""></li>
+                        <li style="display: inline;margin-right: 8px"><img src="static/image/foods/footer/QQ.png" alt=""></li>
+                        <li style="display: inline;margin-bottom: 8px"><img src="static/image/foods/footer/WeiBo.png" alt=""></li>
+                        <li class="footer-li"><a href="homepage.html"><b>网站地图</b></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <hr>
+            <div class="col-md-12" style="border-top: 1px">
+                <p style="font-size: 16px;color: #767676;">
+                    <img src="static/image/foods/footer/subway.png" alt="">
+                    <b>©2019&nbsp;南昌地铁,Inc.All rights reserved.</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
