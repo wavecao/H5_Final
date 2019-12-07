@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>餐厅详情</title>
+</head>
+<style>
+    .fixDiv {
+        width: 100% !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 9999 !important;
+    }
+
+    .fixDiv2 {
+        position: fixed !important;
+        right: 0;
+        z-index: 9999 !important;
+    }
+
+    .clear-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .clear-margin {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .previewImg {
+        border: 1px solid black;
+    }
+
+    .spanMsg_wrapped {
+        display: inline-block !important;
+        margin-bottom: 8px;
+        margin-right: 6px;
+    }
+
+    .spanMsg {
+        position: relative !important;
+        color: rgb(72, 72, 72) !important;
+        background-color: rgb(234, 247, 234) !important;
+        padding: 0px 8px !important;
+        border-radius: 15px !important;
+    }
+
+    .spanMsg1 {
+
+    }
+
+    .spanMsg2 {
+
+    }
+
+    .spanMsg3 {
+
+    }
+
+    .spanMsg4 {
+
+    }
+
+    span，h1, h2, h3 {
+        overflow-wrap: break-word !important;
+        font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Microsoft YaHei", "Heiti SC" !important;
+        vertical-align: middle !important;
+        line-height: 1em !important;
+        font-weight: 800 !important;
+        margin: 0px !important;
+    }
+
+    .spanMsg span {
+        font-size: 12px !important;
+    }
+
+    .star_list_style {
+        list-style-type: none;
+        display: inline;
+    }
+
+    .footer-title {
+        overflow-wrap: break-word !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+        line-height: 1.28571em !important;
+        color: rgb(72, 72, 72) !important;
+        margin: 0 !important;
+    }
+
+    .footer-list {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 16px;
+    }
+
+    .footer-li > a {
+        text-decoration: none;
+        font-size: 14px;
+        color: #767676;
+    }
+
+    .pagination-outer {
+        text-align: center;
+    }
+
+    .pagination {
+        font-family: 'Rubik', sans-serif;
+        display: inline-flex;
+        position: relative;
+    }
+
+    .pagination li a.page-link {
+        color: #10ac84;
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 16px;
+        height: 25px;
+        width: 25px;
+        margin: 0 5px 10px;
+        border: none;
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.4s ease 0s;
+    }
+
+    .pagination li.active a.page-link,
+    .pagination li a.page-link:hover,
+    .pagination li.active a.page-link:hover {
+        color: #fff;
+        background-color: #10ac84;
+    }
+
+    .pagination li:first-child a.page-link:hover,
+    .pagination li:last-child a.page-link:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    }
+
+    .pagination li a.page-link:before {
+        content: attr(data-hover);
+        color: rgba(255, 255, 255, 0.2);
+        font-size: 80px;
+        font-weight: 700;
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+
+    .pagination li a.page-link:hover:before,
+    .pagination li.active a.page-link:before {
+        opacity: 1;
+        top: 10px;
+    }
+
+</style>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm navbar-transparent" style="z-index: 2">
+        <div class="col-md-1" style="margin-right: 10px">
+            <a class="navbar-brand nav-text" href="#"><b style="color:#484848;">南昌地铁</b></a>
+        </div>
+        <div class="col-md-4 clear-padding" style="border-radius: 10px">
+            <form class="form-inline shadow-sm">
+                <div class="input-group input-group-lg col-md-12 clear-padding">
+                    <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: #ffffff; border: #EBEBEB; border-right: none"
+                      id="inputGroup-sizing-lg">
+                    <embed src="static/search.svg">
+                </span>
+                    </div>
+                    <input type="text" style="border: #EBEBEB; border-left: none;" class="form-control"
+                           aria-label="Large"
+                           aria-describedby="inputGroup-sizing-sm"
+                           placeholder="搜索“ 谢家村站 ”试试">
+                </div>
+            </form>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link li-text" href="#"><b>地铁故事</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link li-text" href="#"><b>关于我们</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link li-text" href="#"><b>线路查询</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="container-fluid" style="margin-top: 10px">
+    <div class="row">
+        <div class="col-md-6 clear-padding previewImg">
+            <img>
+        </div>
+
+        <div class="col-md-3 clear-padding">
+            <div class="previewImg"><img></div>
+            <div class="previewImg"><img></div>
+        </div>
+
+        <div class="col-md-3 clear-padding">
+            <div class="previewImg"><img></div>
+            <div class="previewImg"><img></div>
+        </div>
+    </div>
+</div>
+
+<div class="banner" id="banner" style="border:1px solid #EBEBEB">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link " href="#section1">详情</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section2">介绍</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3">评价</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section4">位置</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section5">猜你喜欢</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div id="section1" class="container-fluid bg-success"
+                     style="padding-top:70px;padding-bottom:70px;margin-top: 16px;margin-bottom: 16px;">
+                    <div>
+                        <div><h3>Address Info</h3></div>
+                        <section>
+                            <h1 style="margin-bottom: 8px;"><b>Introduction</b></h1>
+                            <div style="margin-bottom: 16px;">
+                                <ul class="clearfix">
+                                    <li class="float-md-left" style="margin-right: 16px">Info-Item</li>
+                                    <li class="float-md-left" style="margin-right: 16px">Info-Item</li>
+                                    <li class="float-md-left" style="margin-right: 16px">Info-Item</li>
+                                    <li class="float-md-left" style="margin-right: 16px">Info-Item</li>
+                                </ul>
+                            </div>
+
+                            <div class="clearfix" style="margin-bottom: 24px;">
+                                <div class="float-md-left spanMsg_wrapped">
+                                    <div class="spanMsg spanMsg1"><span>MSG1</span></div>
+                                </div>
+                                <div class="float-md-left spanMsg_wrapped">
+                                    <div class="spanMsg spanMsg2"><span>MSG2</span></div>
+                                </div>
+                                <div class="float-md-left spanMsg_wrapped">
+                                    <div class="spanMsg spanMsg3"><span>MSG3</span></div>
+                                </div>
+                                <div class="float-md-left spanMsg_wrapped">
+                                    <div class="spanMsg spanMsg4"><span>MSG4</span></div>
+                                </div>
+                                <div class="float-md-left spanMsg_wrapped">
+                                    <div class="spanMsg spanMsg4"><span>MSG5</span></div>
+                                </div>
+                            </div>
+
+                            <div style="margin: 16px 0px">
+                                <div style="height: 1px;border-bottom: 1px solid #EBEBEB;"></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div id="section2" class="container-fluid bg-warning"
+                     style="padding-top:70px;padding-bottom:70px;margin-top: 16px;margin-bottom: 16px;">
+                    <div style="margin-bottom: 16px">
+                        <div>
+                            <div class="clearfix">
+                                <div class="float-md-left profile">
+                                    <img src="static/logo.png" alt="" class="rounded" style="width: 64px;height:64px">
+                                </div>
+
+                                <div class="float-md-left" style="height:64px;margin-left: 16px;padding:8px 0px">
+                                    <div style="margin-bottom: 8px">
+                                        <h3 style="font-size: 16px">Name:</h3>
+                                    </div>
+                                    <div>
+                                        <h3 style="font-size: 16px">Date:</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 16px;margin-bottom: 32px">
+                        <div style="padding:16px">
+                            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll
+                                this section and look at the navigation bar while scrolling!</p>
+                            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll
+                                this section and look at the navigation bar while scrolling!</p>
+                            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll
+                                this section and look at the navigation bar while scrolling!</p>
+                        </div>
+                    </div>
+
+                    <div style="padding: 16px 0px;border-top: 1px solid #EBEBEB;border-bottom: 1px solid #EBEBEB">
+                        <div class="container-fluid clear-padding">
+                            <div class="row">
+                                <div class="col-md-3 rounded ">
+                                    <div style="height:120px;border: 1px solid #EBEBEB">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 rounded">
+                                    <div style="height:120px;border: 1px solid #EBEBEB">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 rounded">
+                                    <div style="height:120px;border: 1px solid #EBEBEB">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 rounded">
+                                    <div style="height:120px;border: 1px solid #EBEBEB">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="section3" class="container-fluid bg-secondary" style="margin-top: 16px;margin-bottom: 16px;">
+                    <div>
+                        <section>
+                            <div class="clearfix">
+                                <div style="margin-bottom: 24px">
+                                    <h1 style="font-size: 24px"><b>评价</b></h1>
+                                </div>
+                                <div class="clearfix" style="margin-bottom: 24px">
+                                    <div class="float-left" style="margin-right: 8px">
+                                        <ui>
+                                            <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                             alt=""></li>
+                                            <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                             alt=""></li>
+                                            <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                             alt=""></li>
+                                            <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                             alt=""></li>
+                                            <li class="star_list_style"><img src="static/image/foods/star_gray.png"
+                                                                             alt=""></li>
+                                        </ui>
+                                    </div>
+
+                                    <div class="float-left">
+                                        <span style="font-size: 14px;color: #484848;">95条评价</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="padding:8px 0px">
+                                <div class="clearfix" style="margin-bottom: 8px">
+                                    <div class="float-left clearfix" style="width:50%;padding-right: 16px">
+                                        <div class="float-left">
+                                            <span style="font-size: 16px;color: #484848;">如实描述</span>
+                                        </div>
+
+                                        <div class="float-right">
+                                            <ul>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img src="static/image/foods/star_gray.png"
+                                                                                 alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="float-left clearfix" style="width:50%;padding-left: 16px">
+                                        <div class="float-left">
+                                            <span style="font-size: 16px;color: #484848;">位置便利</span>
+                                        </div>
+
+                                        <div class="float-right">
+                                            <ul>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img src="static/image/foods/star_gray.png"
+                                                                                 alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix" style="margin-bottom: 8px">
+                                    <div class="float-left clearfix" style="width:50%;padding-right: 16px">
+                                        <div class="float-left">
+                                            <span style="font-size: 16px;color: #484848;">沟通交流</span>
+                                        </div>
+
+                                        <div class="float-right">
+                                            <ul>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img src="static/image/foods/star_gray.png"
+                                                                                 alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="float-left clearfix" style="width:50%;padding-left: 16px">
+                                        <div class="float-left">
+                                            <span style="font-size: 16px;color: #484848;">高性价比</span>
+                                        </div>
+
+                                        <div class="float-right">
+                                            <ul>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img
+                                                        src="static/image/foods/star_yellow.png" alt=""></li>
+                                                <li class="star_list_style"><img src="static/image/foods/star_gray.png"
+                                                                                 alt=""></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top:16px;margin-bottom: 24px">
+                                <div style="height: 1px;border-bottom: 1px solid #EBEBEB;"></div>
+                            </div>
+
+                            <div>
+                                <section>
+                                    <article>
+                                        <div class="clearfix">
+                                            <div class="float-md-left profile">
+                                                <img src="static/logo.png" alt="" class="rounded-circle"
+                                                     style="width: 48px;height:48px">
+                                            </div>
+
+                                            <div class="float-md-left"
+                                                 style="height:48px;margin-left: 16px;padding:4px 0px">
+                                                <div style="margin-bottom: 8px">
+                                                    <h3 style="font-size: 14px">Name:</h3>
+                                                </div>
+                                                <div>
+                                                    <h3 style="font-size: 14px">Date:</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top:8px">
+                                            <p>
+                                                饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。
+                                            </p>
+                                        </div>
+                                    </article>
+
+                                    <div style="margin-top:24px;margin-bottom: 24px">
+                                        <div style="height: 1px;border-bottom: 1px solid #EBEBEB;"></div>
+                                    </div>
+
+                                    <article>
+                                        <div class="clearfix">
+                                            <div class="float-md-left profile">
+                                                <img src="static/logo.png" alt="" class="rounded-circle"
+                                                     style="width: 48px;height:48px">
+                                            </div>
+
+                                            <div class="float-md-left"
+                                                 style="height:48px;margin-left: 16px;padding:4px 0px">
+                                                <div style="margin-bottom: 8px">
+                                                    <h3 style="font-size: 14px">Name:</h3>
+                                                </div>
+                                                <div>
+                                                    <h3 style="font-size: 14px">Date:</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top:8px">
+                                            <p>
+                                                饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。
+                                                饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。
+                                                饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。
+                                            </p>
+                                        </div>
+                                    </article>
+
+                                    <div style="margin-top:24px;margin-bottom: 24px">
+                                        <div style="height: 1px;border-bottom: 1px solid #EBEBEB;"></div>
+                                    </div>
+
+                                    <article>
+                                        <div class="clearfix">
+                                            <div class="float-md-left profile">
+                                                <img src="static/logo.png" alt="" class="rounded-circle"
+                                                     style="width: 48px;height:48px">
+                                            </div>
+
+                                            <div class="float-md-left"
+                                                 style="height:48px;margin-left: 16px;padding:4px 0px">
+                                                <div style="margin-bottom: 8px">
+                                                    <h3 style="font-size: 16px">Name:</h3>
+                                                </div>
+                                                <div>
+                                                    <h3 style="font-size: 14px">Date:</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top:8px">
+                                            <p>
+                                                饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。
+                                                饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。
+                                            </p>
+                                        </div>
+                                    </article>
+
+                                    <div style="margin-top:24px;margin-bottom: 24px">
+                                        <div style="height: 1px;border-bottom: 1px solid #EBEBEB;"></div>
+                                    </div>
+
+                                    <article>
+                                        <div class="clearfix">
+                                            <div class="float-md-left profile">
+                                                <img src="static/logo.png" alt="" class="rounded-circle"
+                                                     style="width: 48px;height:48px">
+                                            </div>
+
+                                            <div class="float-md-left"
+                                                 style="height:48px;margin-left: 16px;padding:4px 0px">
+                                                <div style="margin-bottom: 8px">
+                                                    <h3 style="font-size: 16px">Name:</h3>
+                                                </div>
+                                                <div>
+                                                    <h3 style="font-size: 14px">Date:</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top:8px">
+                                            <p>
+                                                饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。
+                                            </p>
+                                        </div>
+                                    </article>
+
+                                    <div style="margin-top:24px;margin-bottom: 24px">
+                                        <div style="height: 1px;border-bottom: 1px solid #EBEBEB;"></div>
+                                    </div>
+
+                                    <article>
+                                        <div class="clearfix">
+                                            <div class="float-md-left profile">
+                                                <img src="static/logo.png" alt="" class="rounded-circle"
+                                                     style="width: 48px;height:48px">
+                                            </div>
+
+                                            <div class="float-md-left"
+                                                 style="height:48px;margin-left: 16px;padding:4px 0px">
+                                                <div style="margin-bottom: 8px">
+                                                    <h3 style="font-size: 16px">Name:</h3>
+                                                </div>
+                                                <div>
+                                                    <h3 style="font-size: 14px">Date:</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top:8px">
+                                            <p>
+                                                饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。
+                                            </p>
+                                        </div>
+                                    </article>
+
+                                    <div style="margin-top:24px;margin-bottom: 24px">
+                                        <div style="height: 1px;border-bottom: 1px solid #EBEBEB;"></div>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                            <div>
+                                <div class="container clear-padding">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <nav class="pagination-outer" aria-label="Page navigation">
+                                                <ul class="pagination pagination-sm">
+                                                    <li class="page-item">
+                                                        <a href="#" class="page-link" aria-label="Previous">
+                                                            <span aria-hidden="true">«</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                    <li class="page-item active"><a class="page-link" href="#">3</a>
+                                                    </li>
+                                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                    <li class="page-item">
+                                                        <a href="#" class="page-link" aria-label="Next">
+                                                            <span aria-hidden="true">»</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </section>
+
+                    </div>
+                </div>
+
+                <div id="section4" class="container-fluid bg-danger"
+                     style="padding-bottom:70px;margin-top: 56px;margin-bottom: 16px;">
+                    <div>
+                        <section>
+                            <div>
+                                <h1 style="font-size: 24px"><b>位置</b></h1>
+                            </div>
+                            <div style="margin-top:30px">
+                                <h2 style="font-size: 16px">南昌市，江西省，中国</h2>
+                            </div>
+                            <div style="margin: 16px 0;">
+                                <img alt=""
+                                     src="https://restapi.amap.com/v3/staticmap?key=a7708a7c3c84313afa7ac50b3cdf0bf7&amp;location=104.10321,30.64563&amp;zoom=13&amp;size=595*280"
+                                     style="width: 100%;">
+                            </div>
+                            <div>
+                                <div>
+                                    <span class="glyphicon glyphicon-minus" style="width:20px;height:20px"></span>
+                                </div>
+                                <div><span class="glyphicon glyphicon-camera"></span></div>
+                                <div><span class="glyphicon glyphicon-camera"></span></div>
+                                <div><span class="glyphicon glyphicon-camera"></span></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-5" id="price">
+                <aside id="price_aside" style="border-radius: 5px;border: 1px solid #EBEBEB;margin-top:16px">
+                    <div class="container">
+                        <div class="rows">
+                            <div style="margin-top:24px">
+                                <h1 style="font-size: 24px"><b>价格</b></h1>
+                            </div>
+                            <div style="margin-top:8px">
+                                <span style="font-size: 14px;margin-right: 16px">Information</span>
+                                <span style="font-size: 14px">Information</span>
+                            </div>
+                            <div style="margin-top:24px;margin-bottom: 24px">
+                                <div style="height: 1px;border-bottom: 2px solid #EBEBEB;"></div>
+                            </div>
+                            <div>
+                                <p>Infomation Infomation Infomation Infomation Infomation Infomation Infomation
+                                    Infomation Infomation Infomation
+                                    Infomation Infomation Infomation Infomation Infomation Infomation Infomation
+                                    Infomation Infomation Infomation
+                                    Infomation Infomation Infomation Infomation Infomation Infomation Infomation
+                                    Infomation Infomation Infomation
+                                </p>
+                            </div>
+
+                            <div style="margin-top:48px;padding:32px 0px">
+                                <div>
+                                    <button class="bg-danger"
+                                            style="height:40px;width:100%;border-radius:5px;border: none">
+                                        <span style="font-size: 18px;color: white">预 定</span>
+                                    </button>
+
+                                    <div style="text-align: center">
+                                        <a style="font-size: 14px"><b>You wouldn't pay</b></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <div id="section5" class="container" style="margin-top: 40px">
+        <div style="margin-bottom:32px;">
+            <h2><b style="font-size: 24px">您可能还喜欢喜欢</b></h2>
+        </div>
+        <div class="tab-content border" style="border-radius: 5px">
+            <!--        火锅-->
+            <div class="tab-pane fade show active" id="pills-suggest" role="tabpanel"
+                 aria-labelledby="pills-suggest-tab">
+                <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
+                    <div class="card clear-padding border-0 shadow-sm"
+                         style="width: 32%; margin-right: 1%; margin-left: 1%; ">
+                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/maitian.jpg"
+                                        alt="Card image cap"></a>
+                        <div class="card-body">
+                            <h6 class="card-title store_name">麦田烘焙</h6>
+                            <span class="cheap-text">蛋糕6选1，约4寸，圆形</span>
+                            <br>
+                            <div class="row clear-padding" style="margin-top: 20px">
+                                <div class="col-md-7">
+                                    <span class="suggest-price-symbol">￥</span>
+                                    <span class="suggest-current-price">19.9</span>
+                                    <span class="store-address"><del>￥168</del></span>
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="store-address text-right align-bottom">滕王阁</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; ">
+                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/xiangmi.jpg"
+                                        alt="Card image cap"></a>
+                        <div class="card-body">
+                            <h6 class="card-title store_name">香蜜奇缘蛋糕店</h6>
+                            <span class="cheap-text">人气星选：6英寸生日礼物欧式水果蛋糕（卡通蛋糕）新...</span>
+                            <br>
+                            <div class="row clear-padding" style="margin-top: 20px">
+                                <div class="col-md-7">
+                                    <span class="suggest-price-symbol">￥</span>
+                                    <span class="suggest-current-price">58</span>
+                                    <span class="store-address"><del>￥128</del></span>
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="store-address text-right align-bottom">八一广场</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
+                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/hagendasi.jpg"
+                                        alt="Card image cap"></a>
+                        <div class="card-body">
+                            <h6 class="card-title store_name">哈根达斯（中山路百盛店）</h6>
+                            <span class="cheap-text">火花蛋糕冰淇淋一个，约700克，圆</span>
+                            <br>
+                            <div class="row clear-padding" style="margin-top: 20px">
+                                <div class="col-md-7">
+                                    <span class="suggest-price-symbol">￥</span>
+                                    <span class="suggest-current-price">258</span>
+                                    <span class="store-address"><del>￥298</del></span>
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="store-address text-right align-bottom">中山路</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
+                    <div class="card clear-padding border-0 shadow-sm"
+                         style="width: 32%; margin-right: 1%; margin-left: 1%; ">
+                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/xilaideng.jpg"
+                                        alt="Card image cap"></a>
+                        <div class="card-body">
+                            <h6 class="card-title store_name">喜来登酒店盛宴标帜餐厅</h6>
+                            <span class="cheap-text">通用单人自助晚餐</span>
+                            <br>
+                            <div class="row clear-padding" style="margin-top: 20px">
+                                <div class="col-md-7">
+                                    <span class="suggest-price-symbol">￥</span>
+                                    <span class="suggest-current-price">208</span>
+                                    <span class="store-address"><del>￥275</del></span>
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="store-address text-right align-bottom">世贸广场</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; ">
+                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/jinboluo.jpg"
+                                        alt="Card image cap"></a>
+                        <div class="card-body">
+                            <h6 class="card-title store_name">金菠萝蛋糕</h6>
+                            <span class="cheap-text">蛋糕三选一，约12寸，圆形</span>
+                            <br>
+                            <div class="row clear-padding" style="margin-top: 20px">
+                                <div class="col-md-7">
+                                    <span class="suggest-price-symbol">￥</span>
+                                    <span class="suggest-current-price">109</span>
+                                    <span class="store-address"><del>￥168</del></span>
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="store-address text-right align-bottom">绳金塔</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
+                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/qida.jpg"
+                                        alt="Card image cap"></a>
+                        <div class="card-body">
+                            <h6 class="card-title store_name">启达西饼生日蛋糕（蛋糕送到家象湖店）</h6>
+                            <span class="cheap-text">蛋糕7选1,约6英寸，方型</span>
+                            <br>
+                            <div class="row clear-padding" style="margin-top: 20px">
+                                <div class="col-md-7">
+                                    <span class="suggest-price-symbol">￥</span>
+                                    <span class="suggest-current-price">79</span>
+                                    <span class="store-address"><del>￥118</del></span>
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="store-address text-right align-bottom">象湖</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<hr>
+<footer>
+    <div class="container" style="margin-top: 40px">
+        <div class="row">
+            <!-- 部分：一 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">南昌地铁</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href=""><b>工作机会</b></a></li>
+                        <li class="footer-li"><a href=""><b>地铁相关新闻</b></a></li>
+                        <li class="footer-li"><a href=""><b>政策与规定</b></a></li>
+                        <li class="footer-li"><a href=""><b>信息公开</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 部分：二 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">发现</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href=""><b>地铁地图</b></a></li>
+                        <li class="footer-li"><a href=""><b>公益活动</b></a></li>
+                        <li class="footer-li"><a href=""><b>乘车指南</b></a></li>
+                        <li class="footer-li"><a href=""><b>无障碍建设</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 部分：三 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">友情链接</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href="http://www.mot.gov.cn/" target="_blank"><b>交通运输部</b></a></li>
+                        <li class="footer-li"><a href="https://jx.122.gov.cn/" target="_blank"><b>江西省交管局</b></a></li>
+                        <li class="footer-li"><a href="http://www.nc.gov.cn/" target="_blank"><b>南昌市政府</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">联系我们</h4>
+                    <ul class="footer-list">
+                        <li style="display: inline;margin-right: 8px"><img src="static/image/foods/footer/WeChat.png"
+                                                                           alt=""></li>
+                        <li style="display: inline;margin-right: 8px"><img src="static/image/foods/footer/QQ.png"
+                                                                           alt=""></li>
+                        <li style="display: inline;margin-bottom: 8px"><img src="static/image/foods/footer/WeiBo.png"
+                                                                            alt=""></li>
+                        <li class="footer-li"><a href="homepage.html"><b>网站地图</b></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <hr>
+            <div class="col-md-12" style="border-top: 1px">
+                <p style="font-size: 16px;color: #767676;">
+                    <img src="static/image/foods/footer/subway.png" alt="">
+                    <b>©2019&nbsp;南昌地铁,Inc.All rights reserved.</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+<script>
+    $(function () {
+        let a = $('#banner');
+        let b = a.offset().top;//返回或设置导航栏相对于文档的偏移(位置)
+        //加个屏幕滚动事件，c是滚动条相当于文档最顶端的距离
+        $(document).on('scroll', function () {
+            let c = $(document).scrollTop();
+            if (b <= c) {
+                a.addClass("fixDiv");
+            } else {
+                a.removeClass("fixDiv");
+            }
+        })
+    });
+</script>
+
+<script>
+    $(function () {
+        let price = $('#price');
+        let position = $('#section4');
+        let price_aside = $('#price_aside');
+        let a = price.offset().top;//返回或设置导航栏相对于文档的偏移(位置)
+        let b = position.offset().top - price_aside.height() + position.height();
+        //加个屏幕滚动事件，c是滚动条相当于文档最顶端的距离
+        $(document).on('scroll', function () {
+            let c = $(document).scrollTop();
+            if (a <= c && c <= b) {
+                price.addClass("fixDiv2");
+            } else {
+                price.removeClass("fixDiv2");
+            }
+        })
+    });
+</script>
+</html>
