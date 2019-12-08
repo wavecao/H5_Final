@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -28,22 +29,34 @@
 
     .fixDiv2 {
         position: fixed !important;
-        right: 0;
+        right: 50px !important;
+        top: 100px !important;
         z-index: 9999 !important;
     }
 
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-text {
+        font-family: 'Microsoft YaHei UI';
+        font-size: x-large;
+    }
+
+    .li-text {
+        color: #484848;
+        font-family: 'Microsoft YaHei UI';
+        font-size: medium;
+    }
     .clear-padding {
         padding-left: 0;
         padding-right: 0;
     }
 
-    .clear-margin {
-        margin-left: 0;
-        margin-right: 0;
-    }
+
 
     .previewImg {
-        border: 1px solid black;
+        background-color: rgb(0, 0, 0);
     }
 
     .spanMsg_wrapped {
@@ -77,12 +90,12 @@
     }
 
     span，h1, h2, h3 {
-        overflow-wrap: break-word !important;
-        font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Microsoft YaHei", "Heiti SC" !important;
-        vertical-align: middle !important;
-        line-height: 1em !important;
-        font-weight: 800 !important;
-        margin: 0px !important;
+        overflow-wrap: break-word;
+        font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Microsoft YaHei", "Heiti SC";
+        vertical-align: middle;
+        line-height: 1em;
+        font-weight: 800;
+        margin: 0px;
     }
 
     .spanMsg span {
@@ -94,25 +107,38 @@
         display: inline;
     }
 
-    .footer-title {
-        overflow-wrap: break-word !important;
-        font-size: 18px !important;
-        font-weight: 800 !important;
-        line-height: 1.28571em !important;
-        color: rgb(72, 72, 72) !important;
-        margin: 0 !important;
+    .cheap-text {
+        font-size: 12px;
+        color: #999;
+        margin-left: 0;
     }
 
-    .footer-list {
-        list-style: none;
+    .store_name {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    .card-body {
+        padding-top: 10px;
+        padding-bottom: 0;
         padding-left: 0;
-        margin-top: 16px;
     }
 
-    .footer-li > a {
-        text-decoration: none;
-        font-size: 14px;
-        color: #767676;
+    .store-address {
+        font-size: 12px;
+        color: #999999;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 32px;
+        line-height: 32px;
+    }
+
+    .card:hover {
+        background-color: #F4F4F4;
+    }
+
+    .store-img {
+        border-radius: 5px;
     }
 
     .pagination-outer {
@@ -173,12 +199,33 @@
         top: 10px;
     }
 
+    .footer-title {
+        overflow-wrap: break-word !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+        line-height: 1.28571em !important;
+        color: rgb(72, 72, 72) !important;
+        margin: 0 !important;
+    }
+
+    .footer-list {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 16px;
+    }
+
+    .footer-li > a {
+        text-decoration: none;
+        font-size: 14px;
+        color: #767676;
+    }
+
 </style>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm navbar-transparent" style="z-index: 2">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="col-md-1" style="margin-right: 10px">
-            <a class="navbar-brand nav-text" href="#"><b style="color:#484848;">南昌地铁</b></a>
+            <a class="navbar-brand nav-text" href="homepage.html"><b style="color:#484848;">南昌地铁</b></a>
         </div>
         <div class="col-md-4 clear-padding" style="border-radius: 10px">
             <form class="form-inline shadow-sm">
@@ -186,7 +233,10 @@
                     <div class="input-group-prepend">
                 <span class="input-group-text" style="background-color: #ffffff; border: #EBEBEB; border-right: none"
                       id="inputGroup-sizing-lg">
-                    <embed src="static/search.svg">
+                    <svg t="1574817648386" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" p-id="2749" width="25" height="25"><path
+                            d="M797.525333 752.266667c62.069333-72.736 97.28-165.002667 97.28-262.186667C894.816 266.528 713.621333 85.333333 490.08 85.333333 266.538667 85.333333 85.333333 266.538667 85.333333 490.069333 85.333333 713.610667 266.538667 894.826667 490.069333 894.826667a404.693333 404.693333 0 0 0 118.208-17.546667 32 32 0 0 0-18.666666-61.216 340.693333 340.693333 0 0 1-99.541334 14.762667C301.888 830.816 149.333333 678.261333 149.333333 490.069333 149.333333 301.888 301.888 149.333333 490.069333 149.333333 678.261333 149.333333 830.826667 301.888 830.826667 490.069333c0 89.28-35.381333 173.696-97.141334 237.322667a36.992 36.992 0 0 0 0.384 51.925333l149.973334 149.973334a32 32 0 0 0 45.258666-45.248L797.525333 752.266667z"
+                            p-id="2750" fill="#707070"></path></svg>
                 </span>
                     </div>
                     <input type="text" style="border: #EBEBEB; border-left: none;" class="form-control"
@@ -204,67 +254,74 @@
         <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link li-text" href="#"><b>地铁故事</b></a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link li-text" href="#"><b>关于我们</b></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link li-text" href="#"><b>线路查询</b></a>
+                    <a class="nav-link li-text" href="#"><b>登录</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link li-text" href="#"><b>注册</b></a>
                 </li>
             </ul>
         </div>
     </nav>
-</div>
+</header>
 
 <div class="container-fluid" style="margin-top: 10px">
     <div class="row">
         <div class="col-md-6 clear-padding previewImg">
-            <img>
+            <div style="border: 1px solid black">
+                <img src="static/image/test/test1.jpg" alt="" style="width: 100%">
+            </div>
         </div>
 
-        <div class="col-md-3 clear-padding">
-            <div class="previewImg"><img></div>
-            <div class="previewImg"><img></div>
+        <div class="col-md-3 clear-padding previewImg">
+            <div style="border: 1px solid black"><img src="static/image/test/test2.jpg" alt="" style="width: 100%">
+            </div>
+            <div style="border: 1px solid black"><img src="static/image/test/test3.jpg" alt="" style="width: 100%">
+            </div>
         </div>
 
-        <div class="col-md-3 clear-padding">
-            <div class="previewImg"><img></div>
-            <div class="previewImg"><img></div>
+        <div class="col-md-3 clear-padding previewImg">
+            <div style="border: 1px solid black"><img src="static/image/test/test4.jpg" alt="" style="width: 100%">
+            </div>
+            <div style="border: 1px solid black"><img src="static/image/test/test5.jpg" alt="" style="width: 100%">
+            </div>
         </div>
+    </div>
+
+    <div class="banner" id="banner">
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <div class="container">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " href="#section1">详情</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section2">介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section3">评价</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section4">位置</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section5">猜你喜欢</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
 </div>
 
-<div class="banner" id="banner" style="border:1px solid #EBEBEB">
-    <nav class="navbar navbar-expand-sm bg-light navbar-light">
-        <div class="container">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link " href="#section1">详情</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#section2">介绍</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#section3">评价</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#section4">位置</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#section5">猜你喜欢</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
 
 <main>
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <div id="section1" class="container-fluid bg-success"
-                     style="padding-top:70px;padding-bottom:70px;margin-top: 16px;margin-bottom: 16px;">
+                <div id="section1" class="container-fluid "
+                     style="margin:16px 0;padding-top: 16px;padding-bottom: 16px">
                     <div>
                         <div><h3>Address Info</h3></div>
                         <section>
@@ -303,13 +360,13 @@
                     </div>
                 </div>
 
-                <div id="section2" class="container-fluid bg-warning"
-                     style="padding-top:70px;padding-bottom:70px;margin-top: 16px;margin-bottom: 16px;">
+                <div id="section2" class="container-fluid "
+                     style="padding-top:16px;padding-bottom:16px;">
                     <div style="margin-bottom: 16px">
                         <div>
                             <div class="clearfix">
                                 <div class="float-md-left profile">
-                                    <img src="static/logo.png" alt="" class="rounded" style="width: 64px;height:64px">
+                                    <img src="static/logo.png" alt="" class="rounded" style="width: 64px;height:64px;">
                                 </div>
 
                                 <div class="float-md-left" style="height:64px;margin-left: 16px;padding:8px 0px">
@@ -324,7 +381,7 @@
                         </div>
                     </div>
 
-                    <div style="margin-top: 16px;margin-bottom: 32px">
+                    <div style="margin-top: 32px;margin-bottom: 32px;border:1px solid #EBEBEB;border-radius: 5px;background-color:#EBEBEB ">
                         <div style="padding:16px">
                             <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll
                                 this section and look at the navigation bar while scrolling!</p>
@@ -366,7 +423,8 @@
                     </div>
                 </div>
 
-                <div id="section3" class="container-fluid bg-secondary" style="margin-top: 16px;margin-bottom: 16px;">
+                <div id="section3" class="container-fluid"
+                     style="margin-top: 56px;margin-bottom: 16px;padding-top:16px;padding-bottom:16px;">
                     <div>
                         <section>
                             <div class="clearfix">
@@ -643,7 +701,7 @@
                             </div>
 
                             <div>
-                                <div class="container clear-padding">
+                                <div class="container-fluid clear-padding">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <nav class="pagination-outer" aria-label="Page navigation">
@@ -653,9 +711,10 @@
                                                             <span aria-hidden="true">«</span>
                                                         </a>
                                                     </li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                    <li class="page-item active"><a class="page-link" href="#">1</a>
+                                                    </li>
                                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item active"><a class="page-link" href="#">3</a>
+                                                    <li class="page-item"><a class="page-link" href="#">3</a>
                                                     </li>
                                                     <li class="page-item"><a class="page-link" href="#">4</a></li>
                                                     <li class="page-item"><a class="page-link" href="#">5</a></li>
@@ -677,8 +736,8 @@
                     </div>
                 </div>
 
-                <div id="section4" class="container-fluid bg-danger"
-                     style="padding-bottom:70px;margin-top: 56px;margin-bottom: 16px;">
+                <div id="section4" class="container-fluid"
+                     style="margin-top: 56px;margin-bottom: 16px;padding-top:16px;padding-bottom:16px;">
                     <div>
                         <section>
                             <div>
@@ -693,12 +752,46 @@
                                      style="width: 100%;">
                             </div>
                             <div>
-                                <div>
-                                    <span class="glyphicon glyphicon-minus" style="width:20px;height:20px"></span>
+                                <div class="clearfix" style="margin-bottom: 8px">
+                                    <div class="float-left" style="width:4%;padding-right: 8px">
+                                        <span class="fas fa-camera-retro" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="float-left" style="width:96%">
+                                        <p style="font-weight: 400">
+                                            周边热门：五一广场（约500米）、太平街南门口小吃街（约1000米）、太平街（约1000米）
+                                        </p>
+                                    </div>
                                 </div>
-                                <div><span class="glyphicon glyphicon-camera"></span></div>
-                                <div><span class="glyphicon glyphicon-camera"></span></div>
-                                <div><span class="glyphicon glyphicon-camera"></span></div>
+                                <div class="clearfix" style="margin-bottom: 8px">
+                                    <div class="float-left" style="width:4%;padding-right: 8px">
+                                        <span class="fas fa-subway" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="float-left" style="width:96%">
+                                        <p style="font-weight: 400">
+                                            附近地铁站：五一广场（约500米）、芙蓉广场（约800米）、培元桥（约800米）
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-bottom: 8px">
+                                    <div class="float-left" style="width:4%;padding-right: 8px">
+                                        <span class="fas fa-plane" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="float-left" style="width:96%">
+                                        <p style="font-weight: 400">
+                                            机场 / 火车站：黄花国际机场（约23.7公里）、长沙火车站（约3.4公里）、长沙高铁南站（约10.3公里）
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="clearfix" style="margin-bottom: 8px">
+                                    <div class="float-left" style="width:4%;padding-right: 8px">
+                                        <span class="fas fa-home" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="float-left" style="width:96%">
+                                        <p style="font-weight: 400">
+                                            标志建筑：黄花国际机场（约23.7公里）、长沙火车站（约3.4公里）、长沙高铁南站（约10.3公里）
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                     </div>
@@ -708,7 +801,7 @@
 
             <div class="col-md-5" id="price">
                 <aside id="price_aside" style="border-radius: 5px;border: 1px solid #EBEBEB;margin-top:16px">
-                    <div class="container">
+                    <div class="container-fluid">
                         <div class="rows">
                             <div style="margin-top:24px">
                                 <h1 style="font-size: 24px"><b>价格</b></h1>
@@ -747,19 +840,16 @@
                 </aside>
             </div>
         </div>
-    </div>
 
-    <div id="section5" class="container" style="margin-top: 40px">
-        <div style="margin-bottom:32px;">
-            <h2><b style="font-size: 24px">您可能还喜欢喜欢</b></h2>
-        </div>
-        <div class="tab-content border" style="border-radius: 5px">
-            <!--        火锅-->
-            <div class="tab-pane fade show active" id="pills-suggest" role="tabpanel"
-                 aria-labelledby="pills-suggest-tab">
+        <div id="section5" class="container" style="margin-top: 40px">
+            <div style="margin-bottom:32px;">
+                <h2><b style="font-size: 24px">您可能还喜欢喜欢</b></h2>
+            </div>
+
+            <div>
                 <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
                     <div class="card clear-padding border-0 shadow-sm"
-                         style="width: 32%; margin-right: 1%; margin-left: 1%; ">
+                         style="width: 32%;margin-right: 2%; ">
                         <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/maitian.jpg"
                                         alt="Card image cap"></a>
                         <div class="card-body">
@@ -778,7 +868,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; ">
+                    <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 2%; ">
                         <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/xiangmi.jpg"
                                         alt="Card image cap"></a>
                         <div class="card-body">
@@ -817,69 +907,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin: 0;padding-top: 11px; padding-bottom: 11px">
-                    <div class="card clear-padding border-0 shadow-sm"
-                         style="width: 32%; margin-right: 1%; margin-left: 1%; ">
-                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/xilaideng.jpg"
-                                        alt="Card image cap"></a>
-                        <div class="card-body">
-                            <h6 class="card-title store_name">喜来登酒店盛宴标帜餐厅</h6>
-                            <span class="cheap-text">通用单人自助晚餐</span>
-                            <br>
-                            <div class="row clear-padding" style="margin-top: 20px">
-                                <div class="col-md-7">
-                                    <span class="suggest-price-symbol">￥</span>
-                                    <span class="suggest-current-price">208</span>
-                                    <span class="store-address"><del>￥275</del></span>
-                                </div>
-                                <div class="col-md-5">
-                                    <p class="store-address text-right align-bottom">世贸广场</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card clear-padding border-0 shadow-sm" style="width: 32%; margin-right: 1%; ">
-                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/jinboluo.jpg"
-                                        alt="Card image cap"></a>
-                        <div class="card-body">
-                            <h6 class="card-title store_name">金菠萝蛋糕</h6>
-                            <span class="cheap-text">蛋糕三选一，约12寸，圆形</span>
-                            <br>
-                            <div class="row clear-padding" style="margin-top: 20px">
-                                <div class="col-md-7">
-                                    <span class="suggest-price-symbol">￥</span>
-                                    <span class="suggest-current-price">109</span>
-                                    <span class="store-address"><del>￥168</del></span>
-                                </div>
-                                <div class="col-md-5">
-                                    <p class="store-address text-right align-bottom">绳金塔</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card clear-padding border-0 shadow-sm" style="width: 32%; ">
-                        <a href=""><img class="card-img-top store-img" src="static/image/foods/suggest/qida.jpg"
-                                        alt="Card image cap"></a>
-                        <div class="card-body">
-                            <h6 class="card-title store_name">启达西饼生日蛋糕（蛋糕送到家象湖店）</h6>
-                            <span class="cheap-text">蛋糕7选1,约6英寸，方型</span>
-                            <br>
-                            <div class="row clear-padding" style="margin-top: 20px">
-                                <div class="col-md-7">
-                                    <span class="suggest-price-symbol">￥</span>
-                                    <span class="suggest-current-price">79</span>
-                                    <span class="store-address"><del>￥118</del></span>
-                                </div>
-                                <div class="col-md-5">
-                                    <p class="store-address text-right align-bottom">象湖</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
+
         </div>
     </div>
+
+
 </main>
 
 <hr>
