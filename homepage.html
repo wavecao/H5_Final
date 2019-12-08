@@ -187,22 +187,27 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm navbar-transparent" style="z-index: 2">
             <div class="col-md-1" style="margin-right: 10px">
                 <a class="navbar-brand" href="#">
-                    <img src="static/logo.png" width="102" height="43" alt="">
+                    <img src="static/image/index/logo.png" width="102" height="43" alt="">
                 </a>
             </div>
+<!--            搜索框-->
             <div class="col-md-4 clear-padding" style="border-radius: 10px">
                 <form class="form-inline shadow-sm">
                     <div class="input-group input-group-lg col-md-12 clear-padding">
-                        <div class="input-group-prepend">
-                <span class="input-group-text" style="background-color: #ffffff; border: #EBEBEB; border-right: none"
-                      id="inputGroup-sizing-lg">
-                    <embed src="static/search.svg">
-                </span>
+                        <div class="input-group-prepend border-0" >
+                            <span class="input-group-text border-0" style="background-color: white" id="inputGroup-sizing-lg">
+                                <embed src="static/image/index/search.svg">
+                            </span>
                         </div>
-                        <input type="text" style="border: #EBEBEB; border-left: none;" class="form-control"
+                        <input id="search" type="search" role="search" style="border: #EBEBEB; border-left: none;" class="form-control"
                                aria-label="Large"
                                aria-describedby="inputGroup-sizing-sm"
-                               placeholder="搜索“ 谢家村站 ”试试">
+                               placeholder="搜索“ 谢家村站 ”试试" onkeyup="search(event)">
+                        <div class="input-group-append">
+                            <button class="btn btn-default border-0" type="button">
+                                <a href="searchResult.html" style="text-decoration: none; color:#484848;">搜索</a>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -214,7 +219,7 @@
             <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link li-text" href="#"><b>关于我们</b></a>
+                        <a class="nav-link li-text" href="aboutUs.html"><b>关于我们</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link li-text" href="#"><b>注册</b></a>
@@ -252,7 +257,7 @@
         <div id="right" class="right">
             <button class="btn-check" onclick="check_animation()" ondblclick="double_check_animation()"></button>
             <div class="btn-background"></div>
-            <embed class="subway-svg" src="static/subway.svg">
+            <embed class="subway-svg" src="static/image/index/subway.svg">
         </div>
     </div>
 </div>
@@ -265,7 +270,7 @@
 
                     <div class="img">
 
-                        <img src="static/food.jpg" width="320px" height="200px" alt="">
+                        <img src="static/image/index/food.jpg" width="320px" height="200px" alt="">
 
                     </div>
                     <div class="main_con" style="padding-bottom: 30px">
@@ -285,7 +290,7 @@
 
                     <div class="img">
 
-                        <img src="static/lvyou.jpg" width="320px" height="200px" alt="">
+                        <img src="static/image/index/lvyou.jpg" width="320px" height="200px" alt="">
 
                     </div>
                     <div class="main_con" style="padding-bottom: 30px">
@@ -306,7 +311,7 @@
 
                     <div class="img">
 
-                        <img src="static/hotel.jpg" width="320px" height="200px"  alt="">
+                        <img src="static/image/index/hotel.jpg" width="320px" height="200px" alt="">
 
                     </div>
 
@@ -368,9 +373,14 @@
         console.timeEnd("t");
 
     });
+
 </script>
 <script>
-
+    function search(event) {
+        if (event.keyCode == 13){
+            alert('测试');
+        }
+    }
 
     function check_animation() {
         let skew_map = move('.right')
