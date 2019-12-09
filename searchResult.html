@@ -9,6 +9,14 @@
     <title>谢家村站搜索结果</title>
 </head>
 <style>
+    .fixDiv {
+        width: 100% !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 9999 !important;
+    }
+
     .navbar{
         padding:1rem;
     }
@@ -21,6 +29,33 @@
         font-family: 'Microsoft YaHei UI';
         font-size: medium;
     }
+
+
+    .tag_wrapped {
+        height: 100%;
+        margin: 0 6px;
+    }
+
+    .tag_wrapped_first {
+        margin-left: 31px;
+    }
+
+    .tag {
+        margin: 8px 0;
+    }
+
+    .tag button {
+        height: 32px;
+        border-radius: 3px;
+        background-color: white;
+        border: 1px solid #EBEBEB;
+    }
+
+    .tag button:hover {
+        background-color: #EBEBEB;
+        transition: background-color 0.4s ease;
+    }
+
     .clear-padding{
         padding-left: 0;
         padding-right: 0;
@@ -31,9 +66,7 @@
         margin-left: 10px;
         margin-top: 5px;
     }
-    h4{
-        margin-bottom: 30px;
-    }
+
     .nav-link{
         border-radius: 0;
     }
@@ -61,318 +94,597 @@
         border-radius: 50%;
         width: 40px
     }
+
+    .pagination-outer {
+        text-align: center;
+    }
+
+    .pagination {
+        font-family: 'Rubik', sans-serif;
+        display: inline-flex;
+        position: relative;
+    }
+
+    .pagination li a.page-link {
+        color: #10ac84;
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 16px;
+        height: 25px;
+        width: 25px;
+        margin: 0 5px 10px;
+        border: none;
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.4s ease 0s;
+    }
+
+    .pagination li.active a.page-link,
+    .pagination li a.page-link:hover,
+    .pagination li.active a.page-link:hover {
+        color: #fff;
+        background-color: #10ac84;
+    }
+
+    .pagination li:first-child a.page-link:hover,
+    .pagination li:last-child a.page-link:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    }
+
+    .pagination li a.page-link:before {
+        content: attr(data-hover);
+        color: rgba(255, 255, 255, 0.2);
+        font-size: 80px;
+        font-weight: 700;
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+
+    .pagination li a.page-link:hover:before,
+    .pagination li.active a.page-link:before {
+        opacity: 1;
+        top: 10px;
+    }
+
+    .footer-title {
+        overflow-wrap: break-word !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+        line-height: 1.28571em !important;
+        color: rgb(72, 72, 72) !important;
+        margin: 0 !important;
+    }
+
+    .footer-list {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 16px;
+    }
+
+    .footer-li > a {
+        text-decoration: none;
+        font-size: 14px;
+        color: #767676;
+    }
 </style>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="col-md-1" style="margin-right: 10px">
-        <a class="navbar-brand nav-text" href="homepage.html"><b style="color:#484848;">南昌地铁</b></a>
-    </div>
-    <!--            搜索框-->
-    <div class="col-md-4 clear-padding " style="border-radius: 10px">
-        <form class="form-inline shadow-sm">
-            <div class="input-group input-group-lg col-md-12 clear-padding">
-                <div class="input-group-prepend border-0" >
-                            <span class="input-group-text border-0" style="background-color: white" id="inputGroup-sizing-lg">
-                                <embed src="static/image/index/search.svg">
-                            </span>
-                </div>
-                <input id="search" type="search" role="search" style="border: #EBEBEB; border-left: none;" class="form-control"
-                       aria-label="Large"
-                       aria-describedby="inputGroup-sizing-sm"
-                       placeholder="搜索“ 谢家村站 ”试试" onkeyup="search(event)">
-                <div class="input-group-append">
-                    <button class="btn btn-default border-0" type="button">
-                        <a href="searchResult.html" style="text-decoration: none; color:#484848;">搜索</a>
-                    </button>
-                </div>
+<header>
+    <div id="banner">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div class="col-md-1" style="margin-right: 10px">
+                <a class="navbar-brand nav-text" href="homepage.html"><b style="color:#484848;">南昌地铁</b></a>
             </div>
-        </form>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+            <!--            搜索框-->
+            <div class="col-md-4 clear-padding " style="border-radius: 10px">
+                <form class="form-inline shadow-sm">
+                    <div class="input-group input-group-lg col-md-12 clear-padding">
+                        <div class="input-group-prepend border-0">
+                                    <span class="input-group-text border-0" style="background-color: white"
+                                          id="inputGroup-sizing-lg">
+                                        <embed src="static/image/index/search.svg">
+                                    </span>
+                        </div>
+                        <input id="search" type="search" role="search" style="border: #EBEBEB; border-left: none;"
+                               class="form-control"
+                               aria-label="Large"
+                               aria-describedby="inputGroup-sizing-sm"
+                               placeholder="搜索“ 谢家村站 ”试试" onkeyup="search(event)">
+                        <div class="input-group-append">
+                            <button class="btn btn-default border-0" type="button">
+                                <a href="searchResult.html" style="text-decoration: none; color:#484848;">搜索</a>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02" >
-        <ul class="navbar-nav ml-auto" >
-            <li class="nav-item">
-                <a class="nav-link li-text" href="aboutUs.html"><b>关于我们</b></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link li-text" href="#"><b>登录</b></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link li-text" href="#"><b>注册</b></a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<h4 style="margin-top: 50px;margin-left: 50px">谢家村站搜索结果</h4>
-<div class="container-fluid">
-    <div class="row " >
-        <div class="col-md-7 " style="margin-left: 50px;">
-            <!--        搜索结果卡片-->
-            <div class="row border" style="border-radius: 4px;margin-top: 10px">
-                <div class="col-md-4 card-1">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-8 card-1 " style="height: 172px">
-                    <div class="row" style="height: 100%">
-                        <div class="col-md-8 border-right" style="height: 100%; margin-right: 0">
-                            <div style="width: 100%;height: 75%">
-                                <p class="p-margin"><b class="card-text">证件照|艺术照</b></p>
-                                <p class="p-margin"><b class="card-title">遇见照相馆</b></p>
-                                <span class="badge badge-success">高评分</span>
-                                <span class="badge badge-secondary">性价比高</span>
-                            </div>
-                            <div style="width: 100%;height: 25%">
-                                <ui>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
-                                </ui>
-                                <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="width: 100%;height: 65%">
-                                <div class="card-title text-right p-margin" style="margin-bottom: 0"><b>￥69</b></div>
-                                <div class="card-text text-right p-margin" ><b>起</b></div>
-                                <div class="card-text text-right p-margin" ><b>新客享优惠</b></div>
-                            </div>
-                            <div style="width: 100%;height: 20%">
-                                <img src="static/image/searchResult/touxiang.jpg" class="img-rounded float-right circular-img" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row border" style="border-radius: 4px;margin-top: 10px">
-                <div class="col-md-4 card-1">
-                    <div id="carouselExampleControls-1" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls-1" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls-1" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-8 card-1 " style="height: 172px">
-                    <div class="row" style="height: 100%">
-                        <div class="col-md-8 border-right" style="height: 100%; margin-right: 0">
-                            <div style="width: 100%;height: 75%">
-                                <p class="p-margin"><b class="card-text">证件照|艺术照</b></p>
-                                <p class="p-margin"><b class="card-title">遇见照相馆</b></p>
-                                <span class="badge badge-success">高评分</span>
-                                <span class="badge badge-secondary">性价比高</span>
-                            </div>
-                            <div style="width: 100%;height: 25%">
-                                <ui>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
-                                </ui>
-                                <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="width: 100%;height: 65%">
-                                <div class="card-title text-right p-margin" style="margin-bottom: 0"><b>￥69</b></div>
-                                <div class="card-text text-right p-margin" ><b>起</b></div>
-                                <div class="card-text text-right p-margin" ><b>新客享优惠</b></div>
-                            </div>
-                            <div style="width: 100%;height: 20%">
-                                <img src="static/image/searchResult/touxiang.jpg" class="img-rounded float-right circular-img" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row border" style="border-radius: 4px;margin-top: 10px">
-                <div class="col-md-4 card-1">
-                    <div id="carouselExampleControls-3" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls-3" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls-3" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-8 card-1 " style="height: 172px">
-                    <div class="row" style="height: 100%">
-                        <div class="col-md-8 border-right" style="height: 100%; margin-right: 0">
-                            <div style="width: 100%;height: 75%">
-                                <p class="p-margin"><b class="card-text">证件照|艺术照</b></p>
-                                <p class="p-margin"><b class="card-title">遇见照相馆</b></p>
-                                <span class="badge badge-success">高评分</span>
-                                <span class="badge badge-secondary">性价比高</span>
-                            </div>
-                            <div style="width: 100%;height: 25%">
-                                <ui>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
-                                </ui>
-                                <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="width: 100%;height: 65%">
-                                <div class="card-title text-right p-margin" style="margin-bottom: 0"><b>￥69</b></div>
-                                <div class="card-text text-right p-margin" ><b>起</b></div>
-                                <div class="card-text text-right p-margin" ><b>新客享优惠</b></div>
-                            </div>
-                            <div style="width: 100%;height: 20%">
-                                <img src="static/image/searchResult/touxiang.jpg" class="img-rounded float-right circular-img" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row border" style="border-radius: 4px;margin-top: 10px">
-                <div class="col-md-4 card-1">
-                    <div id="carouselExampleControls-2" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="static/image/searchResult/meeting.jpg" class="d-block w-100" style="height: 100%" alt="...">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls-2" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls-2" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-8 card-1 " style="height: 172px">
-                    <div class="row" style="height: 100%">
-                        <div class="col-md-8 border-right" style="height: 100%; margin-right: 0">
-                            <div style="width: 100%;height: 75%">
-                                <p class="p-margin"><b class="card-text">证件照|艺术照</b></p>
-                                <p class="p-margin"><b class="card-title">遇见照相馆</b></p>
-                                <span class="badge badge-success">高评分</span>
-                                <span class="badge badge-secondary">性价比高</span>
-                            </div>
-                            <div style="width: 100%;height: 25%">
-                                <ui>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_yellow.png" alt=""></li>
-                                    <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt=""></li>
-                                </ui>
-                                <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="width: 100%;height: 65%">
-                                <div class="card-title text-right p-margin" style="margin-bottom: 0"><b>￥69</b></div>
-                                <div class="card-text text-right p-margin" ><b>起</b></div>
-                                <div class="card-text text-right p-margin" ><b>新客享优惠</b></div>
-                            </div>
-                            <div style="width: 100%;height: 20%">
-                                <img src="static/image/searchResult/touxiang.jpg" class="img-rounded float-right circular-img" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 ml-5" style="height: 562px" id="Gad-map"></div>
-    </div>
-    <div class="row" style="margin-top: 40px">
-        <div class="col-md-3 offset-3">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
+            <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link li-text" href="aboutUs.html"><b>关于我们</b></a>
                     </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link li-text" href="#"><b>登录</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link li-text" href="#"><b>注册</b></a>
                     </li>
                 </ul>
-            </nav>
+            </div>
+        </nav>
 
+        <div class="container-fluid">
+            <div class="row"
+                 style="height: 48px;border-top: 1px solid #EBEBEB;border-bottom: 1px solid #EBEBEB; background-color: white;">
+
+                <div class="tag_wrapped tag_wrapped_first">
+                    <div class="tag">
+                        <button style="width: 60px">
+                            <span style="font-size: 14px">日期</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="tag_wrapped">
+                    <div class="tag">
+                        <button style="width: 60px">
+                            <span style="font-size: 14px">价格</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="tag_wrapped">
+                    <div class="tag">
+                        <button style="width: 80px">
+                            <span style="font-size: 14px">位置区域</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="tag_wrapped">
+                    <div class="tag">
+                        <button style="width: 60px">
+                            <span style="font-size: 14px">美食</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tag_wrapped">
+                    <div class="tag">
+                        <button style="width: 60px">
+                            <span style="font-size: 14px">旅游</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tag_wrapped">
+                    <div class="tag">
+                        <button style="width: 60px">
+                            <span style="font-size: 14px">酒店</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
-    <div class="row">
+</header>
 
+<main>
+    <div class="container-fluid" style="margin-top: 32px">
+        <div class="row" style="padding-left: 31px;">
+            <h4 style="margin-bottom:8px; padding:2px 0; font-size: 24px;font-weight: 800">谢家村站搜索结果</h4>
+        </div>
+        <div class="row ">
+            <div class="col-md-7 " style="margin-left: 31px;">
+                <!--        搜索结果卡片-->
+                <div class="row border" style="border-radius: 4px;margin-top: 10px">
+                    <div class="col-md-4 card-1">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 card-1 " style="height: 172px">
+                        <div class="row" style="height: 100%">
+                            <div class="col-md-8 border-right" style="height: 100%; margin-right: 0">
+                                <div style="width: 100%;height: 75%">
+                                    <p class="p-margin"><b class="card-text">证件照|艺术照</b></p>
+                                    <p class="p-margin"><b class="card-title">遇见照相馆</b></p>
+                                    <span class="badge badge-success">高评分</span>
+                                    <span class="badge badge-secondary">性价比高</span>
+                                </div>
+                                <div style="width: 100%;height: 25%">
+                                    <ui>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt="">
+                                        </li>
+                                    </ui>
+                                    <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="width: 100%;height: 65%">
+                                    <div class="card-title text-right p-margin" style="margin-bottom: 0"><b>￥69</b>
+                                    </div>
+                                    <div class="card-text text-right p-margin"><b>起</b></div>
+                                    <div class="card-text text-right p-margin"><b>新客享优惠</b></div>
+                                </div>
+                                <div style="width: 100%;height: 20%">
+                                    <img src="static/image/searchResult/touxiang.jpg"
+                                         class="img-rounded float-right circular-img" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border" style="border-radius: 4px;margin-top: 10px">
+                    <div class="col-md-4 card-1">
+                        <div id="carouselExampleControls-1" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls-1" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls-1" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 card-1 " style="height: 172px">
+                        <div class="row" style="height: 100%">
+                            <div class="col-md-8 border-right" style="height: 100%; margin-right: 0">
+                                <div style="width: 100%;height: 75%">
+                                    <p class="p-margin"><b class="card-text">证件照|艺术照</b></p>
+                                    <p class="p-margin"><b class="card-title">遇见照相馆</b></p>
+                                    <span class="badge badge-success">高评分</span>
+                                    <span class="badge badge-secondary">性价比高</span>
+                                </div>
+                                <div style="width: 100%;height: 25%">
+                                    <ui>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt="">
+                                        </li>
+                                    </ui>
+                                    <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="width: 100%;height: 65%">
+                                    <div class="card-title text-right p-margin" style="margin-bottom: 0"><b>￥69</b>
+                                    </div>
+                                    <div class="card-text text-right p-margin"><b>起</b></div>
+                                    <div class="card-text text-right p-margin"><b>新客享优惠</b></div>
+                                </div>
+                                <div style="width: 100%;height: 20%">
+                                    <img src="static/image/searchResult/touxiang.jpg"
+                                         class="img-rounded float-right circular-img" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border" style="border-radius: 4px;margin-top: 10px">
+                    <div class="col-md-4 card-1">
+                        <div id="carouselExampleControls-3" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls-3" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls-3" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 card-1 " style="height: 172px">
+                        <div class="row" style="height: 100%">
+                            <div class="col-md-8 border-right" style="height: 100%; margin-right: 0">
+                                <div style="width: 100%;height: 75%">
+                                    <p class="p-margin"><b class="card-text">证件照|艺术照</b></p>
+                                    <p class="p-margin"><b class="card-title">遇见照相馆</b></p>
+                                    <span class="badge badge-success">高评分</span>
+                                    <span class="badge badge-secondary">性价比高</span>
+                                </div>
+                                <div style="width: 100%;height: 25%">
+                                    <ui>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt="">
+                                        </li>
+                                    </ui>
+                                    <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="width: 100%;height: 65%">
+                                    <div class="card-title text-right p-margin" style="margin-bottom: 0"><b>￥69</b>
+                                    </div>
+                                    <div class="card-text text-right p-margin"><b>起</b></div>
+                                    <div class="card-text text-right p-margin"><b>新客享优惠</b></div>
+                                </div>
+                                <div style="width: 100%;height: 20%">
+                                    <img src="static/image/searchResult/touxiang.jpg"
+                                         class="img-rounded float-right circular-img" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row border" style="border-radius: 4px;margin-top: 10px">
+                    <div class="col-md-4 card-1">
+                        <div id="carouselExampleControls-2" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="static/image/searchResult/meeting.jpg" class="d-block w-100"
+                                         style="height: 100%" alt="...">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls-2" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls-2" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 card-1 " style="height: 172px">
+                        <div class="row" style="height: 100%">
+                            <div class="col-md-8 border-right" style="height: 100%; margin-right: 0">
+                                <div style="width: 100%;height: 75%">
+                                    <p class="p-margin"><b class="card-text">证件照|艺术照</b></p>
+                                    <p class="p-margin"><b class="card-title">遇见照相馆</b></p>
+                                    <span class="badge badge-success">高评分</span>
+                                    <span class="badge badge-secondary">性价比高</span>
+                                </div>
+                                <div style="width: 100%;height: 25%">
+                                    <ui>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_yellow.png"
+                                                                         alt=""></li>
+                                        <li class="star_list_style"><img src="static/image/foods/star_gray.png" alt="">
+                                        </li>
+                                    </ui>
+                                    <span class="pingjia">4.9分&nbsp; &nbsp;868个评价</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="width: 100%;height: 65%">
+                                    <div class="card-title text-right p-margin" style="margin-bottom: 0"><b>￥69</b>
+                                    </div>
+                                    <div class="card-text text-right p-margin"><b>起</b></div>
+                                    <div class="card-text text-right p-margin"><b>新客享优惠</b></div>
+                                </div>
+                                <div style="width: 100%;height: 20%">
+                                    <img src="static/image/searchResult/touxiang.jpg"
+                                         class="img-rounded float-right circular-img" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top:16px">
+                    <div class="container-fluid clear-padding">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav class="pagination-outer" aria-label="Page navigation">
+                                    <ul class="pagination pagination-sm">
+                                        <li class="page-item">
+                                            <a href="#" class="page-link" aria-label="Previous">
+                                                <span aria-hidden="true">«</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item">
+                                            <a href="#" class="page-link" aria-label="Next">
+                                                <span aria-hidden="true">»</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ml-5" style="height: 562px" id="Gad-map"></div>
+        </div>
     </div>
-</div>
+</main>
+
+<hr>
+<footer>
+    <div class="container" style="margin-top: 40px">
+        <div class="row">
+            <!-- 部分：一 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">南昌地铁</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href=""><b>工作机会</b></a></li>
+                        <li class="footer-li"><a href=""><b>地铁相关新闻</b></a></li>
+                        <li class="footer-li"><a href=""><b>政策与规定</b></a></li>
+                        <li class="footer-li"><a href=""><b>信息公开</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 部分：二 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">发现</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href=""><b>地铁地图</b></a></li>
+                        <li class="footer-li"><a href=""><b>公益活动</b></a></li>
+                        <li class="footer-li"><a href=""><b>乘车指南</b></a></li>
+                        <li class="footer-li"><a href=""><b>无障碍建设</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 部分：三 -->
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">友情链接</h4>
+                    <ul class="footer-list">
+                        <li class="footer-li"><a href="http://www.mot.gov.cn/" target="_blank"><b>交通运输部</b></a></li>
+                        <li class="footer-li"><a href="https://jx.122.gov.cn/" target="_blank"><b>江西省交管局</b></a></li>
+                        <li class="footer-li"><a href="http://www.nc.gov.cn/" target="_blank"><b>南昌市政府</b></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <h4 class="footer-title">联系我们</h4>
+                    <ul class="footer-list">
+                        <li style="display: inline;margin-right: 8px"><img src="static/image/foods/footer/WeChat.png"
+                                                                           alt=""></li>
+                        <li style="display: inline;margin-right: 8px"><img src="static/image/foods/footer/QQ.png"
+                                                                           alt=""></li>
+                        <li style="display: inline;margin-bottom: 8px"><img src="static/image/foods/footer/WeiBo.png"
+                                                                            alt=""></li>
+                        <li class="footer-li"><a href="homepage.html"><b>网站地图</b></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <hr>
+            <div class="col-md-12" style="border-top: 1px">
+                <p style="font-size: 16px;color: #767676;">
+                    <img src="static/image/foods/footer/subway.png" alt="">
+                    <b>©2019&nbsp;南昌地铁,Inc.All rights reserved.</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    $(function () {
+        let a = $('#banner');
+        let b = a.offset().top;//返回或设置导航栏相对于文档的偏移(位置)
+        //加个屏幕滚动事件，c是滚动条相当于文档最顶端的距离
+        $(document).on('scroll', function () {
+            let c = $(document).scrollTop();
+            if (b < c) {
+                a.addClass("fixDiv");
+            } else {
+                a.removeClass("fixDiv");
+            }
+        })
+    });
+</script>
 
 <script src="https://webapi.amap.com/maps?v=1.4.15&key=c3b11c5a009aae9f00a46ed39c959e71"></script>
 <script>
