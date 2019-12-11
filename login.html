@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .canvas{
+        z-index: 1;
+        position: relative;
+        bottom: 520px;
+    }
+    .first-layer{
+        position: relative;
+        background: white;
+        height: 560px;
+        border-radius: 20px;
+    }
+    .second-layer{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        bottom: 1460px;
+    }
+
+    .page-background{
+        z-index: 2;
+        position: relative;
+        top: 530px;
+        left: 730px;
+    }
+
+    .login-left{
+        border-width: 0 1px 0 0;
+        border-style: solid;
+    }
+
+    .login-form{
+        margin-top: 32px;
+    }
+
+    .login-form input{
+        border-width: 0 0 2px 0;
+        outline: none;
+        height: 32px;
+    }
+
+    .login-form #username{
+        margin-right: 24px;
+    }
+
+    .login-form #email{
+        width: 100%;
+        margin-right: 4%;
+        margin-top: 32px;
+    }
+
+    .login-form #check-label{
+        margin-top: 24px;
+    }
+    .login-image{
+    }
+    .login-title{
+        margin-top: 40px;
+    }
+    .login-title h1{
+        font-weight: bold;
+    }
+    .login-logo{
+        width: 90px;
+        height: 35px;
+        margin-top: 16px;
+    }
+
+    .btn-check{
+        color: white;
+        background-color: #EC1745;
+        border: none;
+        margin-top: 4px;
+        border-radius: 10px;
+    }
+
+    .btn-check:hover{
+        background-color: #FFC933;
+    }
+
+    .login-box{
+        margin-top: 64px;
+    }
+
+    .login-right{
+        margin-left: 24px;
+    }
+    .login-right .info-title{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .login-right .info-text{
+        font-size: 16px;
+        word-break: break-word;
+    }
+</style>
+<body class="container-fluid">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm navbar-transparent" style="z-index: 2">
+        <div class="col-md-1" style="margin-right: 10px">
+            <a class="navbar-brand nav-text" href="homepage.html"><b style="color:#484848;">南昌地铁</b></a>
+        </div>
+        <div class="col-md-4 clear-padding" style="border-radius: 10px">
+            <form class="form-inline shadow-sm">
+                <div class="input-group input-group-lg col-md-12 clear-padding">
+                    <div class="input-group-prepend">
+                <span class="input-group-text" style="background-color: #ffffff; border: #EBEBEB; border-right: none"
+                      id="inputGroup-sizing-lg">
+                    <embed src="static/image/index/search.svg">
+                </span>
+                    </div>
+                    <input type="text" style="border: #EBEBEB; border-left: none;" class="form-control"
+                           aria-label="Large"
+                           aria-describedby="inputGroup-sizing-sm"
+                           placeholder="搜索“ 谢家村站 ”试试">
+                </div>
+            </form>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse col-md-3 offset-4" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link li-text" href="#"><b>地铁故事</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link li-text" href="#"><b>关于我们</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link li-text" href="#"><b>线路查询</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="row canvas">
+    <div class="page-background">
+        <embed src="static/login-page-back.svg">
+    </div>
+    <div class="col-md-8 offset-2  first-layer shadow container-fluid">
+        <div class="row col-md-1 login-image">
+            <img src="static/image/index/logo.png" class="login-logo">
+        </div>
+        <div class="offset-1 login-title">
+            <h1>
+                轻松几步.<br>
+                体验畅快享受.
+            </h1>
+        </div>
+        <div class="row login-box">
+            <div class="col-md-5 offset-1 login-left">
+                <form class="login-form form-inline ">
+                    <label for="username"></label>
+                    <input type="text" id="username" placeholder="用户名">
+                    <label for="password"></label>
+                    <input type="password" id="password" placeholder="密码">
+                    <label for="email"></label>
+                    <input type="email" id="email" placeholder="邮箱">
+                    <label class="form-check-label" id="check-label">
+                        <input class="form-check-input" type="checkbox"> 已阅读并同意 <a href="">《用户使用协议》</a>
+                    </label>
+                </form>
+                <button type="submit" class="btn btn-primary btn-check">提交</button>
+            </div>
+            <div class="col-md-5 login-right row">
+                <div class="info-title">
+                    <p>
+                        注册会员<br>
+                        有什么好处？
+                    </p>
+                </div>
+                <div class="info-text">
+                    <p>
+                        感谢您选择南昌地铁，我们致力于为您打造最舒适的游玩体验！<br>南昌地铁在此特别提醒用户认真阅读本《用户协议》(下称《协议》)中各个条款， 包括免除或限制乐居中国责任的免责条款及对用户的权利限制。用户需认真审阅并选择是否接受本《协议》（未成年人应在法定监护人陪同下审阅）。用户的使用行为将视为对本协议的接受，并同意接受本协议各项条款的约束
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="second-layer">
+    <embed src="static/login-background.svg">
+</div>
+</body>
+</html>
