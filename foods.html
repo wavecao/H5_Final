@@ -2,14 +2,135 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/list.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>卫东站周边美食</title>
 </head>
+<style>
+    .navbar{
+        padding:1rem;
+    }
+    .nav-text{
+        font-family: 'Microsoft YaHei UI';
+        font-size: x-large;
+    }
+    .li-text{
+        color: #484848;
+        font-family: 'Microsoft YaHei UI';
+        font-size: medium;
+    }
+    .clear-padding{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .current-price{
+        font-size: 22px;
+        color: #007bff;
+        margin-right: 6px;
+        letter-spacing: -0.8px;
+        cursor: pointer;
+    }
+    .price-symbol{
+        font-size: 14px;
+        color: #007bff;
+        font-weight: 500;
+    }
+    .suggest-current-price{
+        font-size: 22px;
+        color: #f2c545;
+        margin-right: 6px;
+        letter-spacing: -0.8px;
+        cursor: pointer;
+    }
+    .suggest-price-symbol{
+        font-size: 14px;
+        color: #f2c545;
+        font-weight: 500;
+    }
+    .cheap-current-price{
+        font-size: 22px;
+        color: #fc4242;
+        margin-right: 6px;
+        letter-spacing: -0.8px;
+        cursor: pointer;
+    }
+    .cheap-price-symbol{
+        font-size: 14px;
+        color: #fc4242;
+        font-weight: 500;
+    }
+    .star_list_style{
+        list-style-type: none;
+        display: inline;
+    }
+    .pingjia{
+        font-size: 12px;
+        color: #999;
+        margin-left: 10px;
+    }
+    .cheap-text{
+        font-size: 12px;
+        color: #999;
+        margin-left: 0;
+    }
+    .store_name{
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    .card-body{
+        padding-top: 10px;
+        padding-bottom: 0;
+        padding-left: 0;
+    }
+    .store-address{
+        font-size: 12px;
+        color: #999999;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 32px;
+        line-height: 32px;
+    }
+    .card:hover{
+        background-color: #F4F4F4;
+    }
+    .store-img{
+        border-radius: 5px;
+        width: 354px;
+        height: 200px;
+    }
+    .cheap-img{
+        border-radius: 5px;
+        width: 204px;
+        height: 120px;
+    }
+    .footer-title{
+        overflow-wrap: break-word !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+        line-height: 1.28571em !important;
+        color: rgb(72, 72, 72) !important;
+        margin: 0 !important;
+    }
+    .footer-list{
+        list-style: none;
+        padding-left: 0;
+        margin-top: 16px;
+    }
+    .footer-li>a{
+        text-decoration: none;
+        font-size: 14px;
+        color: #767676;
+    }
 
+    #carousel h1{
+        font-weight:bold;color: white;
+    }
+    #carousel h3{
+        color: white
+    }
+</style>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="col-md-1" style="margin-right: 10px">
@@ -47,10 +168,10 @@
                 <a class="nav-link li-text" href="aboutUs.html"><b>关于我们</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link li-text" href="#"><b>登录</b></a>
+                <a class="nav-link li-text" href="login.html"><b>登录</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link li-text" href="#"><b>注册</b></a>
+                <a class="nav-link li-text" href="login.html"><b>注册</b></a>
             </li>
         </ul>
     </div>
@@ -62,25 +183,25 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner" style="height: 520px">
+        <div class="carousel-inner" id="carousel" style="height: 520px">
             <div class="carousel-item active row" >
                 <div class="col-md-4" style="position: absolute; z-index: 1;margin-left: 13.2%;margin-top: 15%">
-                    <h1 style="font-weight:bold;color: white;">早餐要吃好</h1>
-                    <h2 style="color: white"> 健康的早餐应以五谷为主，配合大量蔬菜、瓜类及水果，适量肉类、蛋类及鱼类食物</h2>
+                    <h1>早餐要吃好</h1>
+                    <h3> 健康的早餐应以五谷为主，配合大量蔬菜、瓜类及水果，适量肉类、蛋类及鱼类食物</h3>
                 </div>
                 <img src="static/image/foods/food_carousel_1.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item row">
                 <div class="col-md-4" style="position: absolute; z-index: 1;margin-left: 13.2%;margin-top: 15%">
-                    <h1 style="font-weight:bold;color: white;">汉堡——“洋快餐”</h1>
-                    <h2 style="color: white"> 汉堡包一词为英语Hamburger的中文名，同时含有音译及义译的元素在内，有时也直接称为汉堡</h2>
+                    <h1>汉堡——“洋快餐”</h1>
+                    <h3> 汉堡包一词为英语Hamburger的中文名，同时含有音译及义译的元素在内，有时也直接称为汉堡</h3>
                 </div>
                 <img src="static/image/foods/food_carousel_2.jpg" class="d-block w-100" style="height:520px" alt="...">
             </div>
             <div class="carousel-item">
                 <div class="col-md-4" style="position: absolute; z-index: 1;margin-left: 13.2%;margin-top: 15%">
-                    <h1 style="font-weight:bold;color: white;">大寒小寒，吃饺子过年</h1>
-                    <h2 style="color: white"> 饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。</h2>
+                    <h1>大寒小寒，吃饺子过年</h1>
+                    <h3> 饺子，是中国传统食物。饺子源于古代的角子。饺子原名“娇耳”，是我国南阳人医圣张仲景首先发明的，距今已有一千八百多年的历史了。</h3>
                 </div>
                 <img src="static/image/foods/food_carousel_3.jpg" class="d-block w-100" style="height: 520px" alt="...">
             </div>
