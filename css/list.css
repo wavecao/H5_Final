@@ -133,3 +133,19 @@
     font-size: 14px;
     color: #767676;
 }
+
+.scroll-text{
+    position: absolute;
+    z-index: 1;
+    margin-left: 13.2%;
+    margin-top: 15%
+}
+
+.scroll-text>h1{
+    font-weight: bold;
+    color: white;
+}
+
+.scroll-text>h2{
+    color: white;
+}
